@@ -1,0 +1,27 @@
+{
+  "name": "sistearth-frontend",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mbarberot/sistearth-frontend",
+  "authors": [
+    "Mathieu Barberot <mathieu.barberot@gmail.com>"
+  ],
+  "description": "Sistearth Frontend with Ember",
+  "main": "index.html",
+  "keywords": [
+    "sistearth",
+    "ember"
+  ],
+  "license": "GPL v2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ember-data": "~0.0.14",
+    "ember": "~1.5.1",
+    "bootstrap": "~3.1.1"
+  }
+}
