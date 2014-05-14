@@ -33,17 +33,30 @@
 
     <script type="text/x-handlebars" data-template-name="news">
         <div class="container">
-            <div id="news">
-                {{#each}}
+            <div id="count" class="col-md-12 well">
+                <p>Nombre de messages importants : {{importantNewsAmount}}</p>
+            </div>
+            <div id="news" class="col-md-12">
+                {{#each itemController="single-news"}}
                 <div>
-                    <h2>{{title}}</h2>
-
-                    <p>{{body}}</p>
+                    <div>
+                        {{#if isEditing}}
+                            {{input type="text" value=title class="col-md-10" action="saveNews"}}
+                        {{else}}
+                        <h2 class="col-md-10">
+                            <span
+                            {{bind-attr class="isImportant:bg-primary"}}
+                            {{action "editNews" on="doubleClick"}}
+                            >
+                                {{title}}
+                            </span>
+                        </h2>
+                        {{input type="checkbox" checked=isImportant class="toggle col-md-1"}}
+                        {{/if}}
+                    </div>
+                    <p class="col-md-12">{{body}}</p>
                 </div>
                 {{/each}}
-            </div>
-            <div id="input">
-                {{input type="text" id="new-news" placeholder="Titre de la news" value=newTitle action="createNews"}}
             </div>
         </div>
     </script>
@@ -58,5 +71,6 @@
 <script src="js/router.js"></script>
 <script src="js/models/news.js"></script>
 <script src="js/controllers/news_controller.js"></script>
+<script src="js/controllers/singlenews_controller.js"></script>
 </body>
 </html>

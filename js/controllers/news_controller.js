@@ -1,16 +1,5 @@
 Sistearth.NewsController = Ember.ArrayController.extend({
-    actions: {
-        createNews: function () {
-            var title = this.get('newTitle');
-            if (!title.trim()) { return; }
-
-            var news = this.store.createRecord('news', {
-                title: title,
-                body: "empty"
-            });
-
-            this.set('newTitle', '');
-            news.save();
-        }
-    }
+    importantNewsAmount: function () {
+        return this.filterBy('isImportant', true).get('length');
+    }.property('@each.isImportant')
 });
