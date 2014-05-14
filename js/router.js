@@ -1,29 +1,9 @@
 Sistearth.Router.map(function(){
-	this.resource('news', { path: '/' }, function() {
-        this.route('important');
-    });
+	this.resource('index', { path: '/' });
 });
 
-Sistearth.NewsRoute = Ember.Route.extend({
+Sistearth.IndexRoute = Ember.Route.extend({
 	model: function() {
 		return this.store.find('news');
 	}
-});
-
-Sistearth.NewsIndexRoute = Ember.Route.extend({
-   model: function() {
-       return this.modelFor('news');
-   }
-});
-
-Sistearth.NewsImportantRoute = Ember.Route.extend({
-    model: function() {
-        return this.store.filter('news', function(news) {
-            return news.get('isImportant');
-        });
-    },
-
-    renderTemplate: function(controller) {
-        this.render('news/index', {controller: controller});
-    }
 });
