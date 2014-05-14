@@ -5,18 +5,19 @@ Sistearth.SingleNewsController = Ember.ObjectController.extend({
         },
 
         saveNews: function () {
-            var title = this.get('title');
-            if (!title.trim()) {
-                return;
-            }
-
-            var news = this.store.createRecord('news', {
-                title: title,
-                body: "empty"
-            });
-
-            news.save();
             this.set('isEditing', false);
+
+            if(Ember.isEmpty(this.get('model.title'))) {
+                this.send('removeNews');
+            } else {
+                this.get('model').save();
+            }
+        },
+
+        removeNews: function() {
+            var news = this.get('model');
+            news.deleteRecord();
+            news.save();
         }
     },
 
