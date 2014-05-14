@@ -1,8 +1,8 @@
 Sistearth.Router.map(function(){
-	this.resource('frontpage', { path: '/' });
+	this.resource('news', { path: '/' });
 });
 
-Sistearth.FrontpageRoute = Ember.Route.extend({
+Sistearth.NewsRoute = Ember.Route.extend({
 	model: function() {
 		return this.store.find('news');
 	}

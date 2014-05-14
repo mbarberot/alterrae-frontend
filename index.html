@@ -7,44 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script type="text/x-handlebars" data-template-name="frontpage">
-    <section id="sistearth-app">
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Sistearth</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </div>
+<section id="sistearth-app">
 
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <div id="news">
-                <ul>
-                    {{#each}}
-                        <li>
-                            <h2>{{title}}</h2>
-                            <p>{{body}}</p>
-                        </li>
-                    {{/each}}
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Sistearth</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
+            <!--/.nav-collapse -->
         </div>
-    </section>
-</script>
+    </div>
+
+    <script type="text/x-handlebars" data-template-name="news">
+        <div class="container">
+            <div id="news">
+                {{#each}}
+                <div>
+                    <h2>{{title}}</h2>
+
+                    <p>{{body}}</p>
+                </div>
+                {{/each}}
+            </div>
+            <div id="input">
+                {{input type="text" id="new-news" placeholder="Titre de la news" value=newTitle action="createNews"}}
+            </div>
+        </div>
+    </script>
+</section>
+
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/handlebars/handlebars.js"></script>
@@ -53,5 +57,6 @@
 <script src="js/app.js"></script>
 <script src="js/router.js"></script>
 <script src="js/models/news.js"></script>
+<script src="js/controllers/news_controller.js"></script>
 </body>
 </html>
