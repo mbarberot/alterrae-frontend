@@ -7,134 +7,77 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<section id="sistearth-app">
+<script type="text/x-handlebars" data-template-name="index">
+    <section id="sistearth-app">
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Sistearth</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#news">Actualités</a></li>
+                    </ul>
+
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Login" name="login" id="login"/>
+                            <input type="password" class="form-control" placeholder="Mot de passe" name="password"
+                                   id="password"/>
+                            <button type="submit" class="btn btn-primary">Connexion</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.navbar -->
+        </div>
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Sistearth</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#news">Actualités</a></li>
-                </ul>
-
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Login" name="login" id="login"/>
-                        <input type="password" class="form-control" placeholder="Mot de passe" name="password"
-                               id="password"/>
-                        <button type="submit" class="btn btn-primary">Connexion</button>
+            <div class="panel-group" id="news">
+                {{#each itemController="news"}}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#news" {{bind-attr href="accordionHref"}}>
+                                {{title}}
+                            </a>
+                        </h4>
                     </div>
-                </form>
-            </div>
-
-            <!--/.nav-collapse -->
-        </div>
-        <!--/.navbar -->
-    </div>
-    <div class="container">
-        <div class="panel-group" id="news">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#news" href="#news-1">
-                            News #1
-                        </a>
-                    </h4>
-                </div>
-                <div id="news-1" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <div class="news-metadata">
-                            <p class="text-muted"><a href="#user/1">Admin</a>, 11 juin 2014</p>
-                        </div>
-                        <div class="news-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
+                    <div {{bind-attr id="accordionId"}} class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="news-metadata">
+                                <p class="text-muted"><a href="#user/1">{{author}}</a>, {{creationDate}}</p>
+                            </div>
+                            <div class="news-body text-justify">
+                                {{body}}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#news" href="#news-2">
-                            News #2
-                        </a>
-                    </h4>
-                </div>
-                <div id="news-2" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <div class="news-metadata">
-                            <p class="text-muted"><a href="#user/2">Mel</a>, 11 juin 2014</p>
-                        </div>
-                        <div class="news-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#news" href="#news-3">
-                            News #3
-                        </a>
-                    </h4>
-                </div>
-                <div id="news-3" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <div class="news-metadata">
-                            <p class="text-muted"><a href="#user/3">Dale</a>, 11 juin 2014</p>
-                        </div>
-                        <div class="news-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
-    </div>
 
-</section>
+    </section>
+</script>
 
-
-<!--<script type="text/x-handlebars" data-template-name="index">-->
-
-<!--<div class="container">-->
-<!--</div>-->
-<!--</script>-->
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<!--<script src="bower_components/handlebars/handlebars.js"></script>-->
-<!--<script src="bower_components/ember/ember.js"></script>-->
-<!--<script src="bower_components/ember-data/ember-data.js"></script>-->
-<!--<script src="js/app.js"></script>-->
-<!--<script src="js/router.js"></script>-->
-<!--<script src="js/models/news.js"></script>-->
+<script src="bower_components/handlebars/handlebars.js"></script>
+<script src="bower_components/ember/ember.js"></script>
+<script src="bower_components/ember-data/ember-data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/router.js"></script>
+<script src="js/models/news.js"></script>
+<script src="js/controllers/news_controller.js"></script>
 
 </body>
 </html>

@@ -1,19 +1,35 @@
 Sistearth.News = DS.Model.extend({
-	title: DS.attr('string'),
-	body: DS.attr('string')
+    title: DS.attr('string'),
+	body: DS.attr('string'),
+    creationDate: DS.attr('string'),
+    status: DS.attr('string'),
+    author: DS.attr('string')
 });
 
 Sistearth.News.FIXTURES = [ 
 	{     
 		id: 1,     
-		title: "Savoir",     
-		body: "Rivaux, après que deux autres qui étaient venus sur les bords plats de l'étang qu'ils avaient tramé pour que celui-ci fasse de l'autre soldat et les périls que l'utopie le désire n'est pas mûr veut vivre : hélas ! Yeux verts, percés comme avec une corde que sans doute une douzaine d'archers. Indifférence absolue vis-à-vis de l'autre chambre, une nuit, des sorties, ainsi que pour celui même qui préfère la république à l'extérieur."
+		title: "News #1",
+		body: "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them labore sustainable VHS.",
+        creationDate: "11 juin 2014",
+        status: "published",
+        author: "Admin"
 	},
-	{
-		id: 2,
-		title: "Prendre une décision importante",
-		body: "Fou de joie en voyant sa maîtresse mariée, ce qu'il aurait dû faire, certaine de l'avenir c'est lui. Supposons que je ne voudrais être ni l'un ni avec l'économie. Sûr de gagner la bataille. Éveillé en sursaut, elle n'aimait que son argent et sortit de la caverne est l'auteur. Né dans une grotte et c'est la nourriture végétale à côté de l'église européenne."
-	}
+    {
+        id: 2,
+        title: "News #2",
+        body: "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them labore sustainable VHS.",
+        creationDate: "11 juin 2014",
+        status: "published",
+        author: "Mel"
+    },{
+        id: 15,
+        title: "News #3",
+        body: "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them labore sustainable VHS.",
+        creationDate: "11 juin 2014",
+        status: "published",
+        author: "Dale"
+    }
 ];
 
 
