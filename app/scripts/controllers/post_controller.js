@@ -1,13 +1,9 @@
-Sistearth.NewsController = Ember.ObjectController.extend({
-    actions: {
-
-    },
-
+SistearthFrontend.PostController = Ember.ObjectController.extend({
     accordionHref: function (key, value) {
         var model = this.get('model');
 
         if (value == undefined) {
-            return "#news-" + model.get('id');
+            return "#post-" + model.get('id');
         }
     }.property('model.id'),
 
@@ -15,7 +11,8 @@ Sistearth.NewsController = Ember.ObjectController.extend({
         var model = this.get('model');
 
         if (value == undefined) {
-            return "news-" + model.get('id');
+            return "post-" + model.get('id');
         }
     }.property('model.id')
 });
+

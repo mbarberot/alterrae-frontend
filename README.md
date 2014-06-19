@@ -7,5 +7,5 @@ Sistearth frontend with Ember
 What you have to do
 -------------------
 
-- ``bower install`` to resolve dependencies
-- go to ``index.html`` with your favorite browser
+- install npm, grunt, Ruby and Compass
+- ``grunt serve``
