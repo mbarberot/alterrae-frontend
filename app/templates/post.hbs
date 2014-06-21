@@ -1,14 +1,7 @@
-<h1>Post</h1>
-
-<table>
-  {{#each model.attributes}}
-  <tr>
-    <td>
-      <strong>{{this.key}}:</strong>
-    </td>
-    <td>
-      {{this.value}}
-    </td>
-  </tr>
-  {{/each}}
-</table>
+<div class="post">
+    <h1 class="post-header">{{title}}</h1>
+    <!-- TODO : link-to author-->
+    <p class="post-metadata text-muted">{{creationDate}}, par <a href="#">{{author}}</a>.</p>
+    <hr>
+    <p>{{body}}</p>
+</div>
