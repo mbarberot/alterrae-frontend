@@ -1,1 +1,0 @@
-SistearthFrontend.ApplicationAdapter = DS.FixtureAdapter;
