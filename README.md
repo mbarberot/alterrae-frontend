@@ -1,6 +1,13 @@
 # Sistearth-frontend
 
-This README outlines the details of collaborating on this Ember application.
+Frontend with Ember for Sistearth v4
+
+## Tools 
+
+* npm install -g ember-cli
+* npm install -g bower
+* npm install -g phantomjs
+* npm install --save-dev broccoli-sass
 
 ## Installation
 
@@ -11,7 +18,7 @@ This README outlines the details of collaborating on this Ember application.
 ## Running
 
 * `ember server`
-* Visit your app at http://localhost:4200.
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ## Running Tests
 
@@ -22,4 +29,13 @@ This README outlines the details of collaborating on this Ember application.
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://iamstef.net/ember-cli/](http://iamstef.net/ember-cli/).
+## For more informations
+
+* [Ember](http://emberjs.com/)
+* [Ember-cli](http://www.ember-cli.com/)
+* [npm](https://www.npmjs.org/)
+* [Bower](http://bower.io/)
+* [PhantomJS](http://phantomjs.org/)
+* [Bootstrap Twitter](http://getbootstrap.com/)
+* [Sass](http://sass-lang.com/)
+* [Sistearth (v3)](http://www.sistearth.com/)
