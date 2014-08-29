@@ -10,11 +10,9 @@
             </div>
             <div {{bind-attr id="accordionId"}} class="panel-collapse collapse">
                 <div class="panel-body">
-                    <div class="news-metadata">
-                        <p class="text-muted"><a href="#user/1">{{author}}</a>, {{creationDate}}</p>
-                    </div>
-                    <div class="news-body text-justify">
-                        {{body}}
+                    <p class="post-metadata text-muted">{{formattedDate}}, par {{authorName}}.</p>
+                    <div class="post-body text-justify">
+                        {{text}}
                     </div>
                 </div>
             </div>

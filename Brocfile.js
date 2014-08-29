@@ -29,6 +29,6 @@ app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/carousel
 app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js');
 app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js');
 app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js');
-
+app.import('vendor/moment/moment.js');
 
 module.exports = app.toTree();
