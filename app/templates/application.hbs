@@ -19,7 +19,13 @@
                     {{#if session.isAuthenticated}}
                         <a {{action 'invalidateSession'}} class="btn btn-primary">Déconnexion</a>
                     {{else}}
-                        {{#link-to 'login' classNames="btn btn-primary"}}Connexion{{/link-to}}
+                        <form role="form" {{action 'authenticate' on='submit'}}>
+                            <div class="form-inline">
+                                {{input type='text' classNames='form-control' placeholder='Identifiant' value=identification id='identification'}}
+                                {{input type='password' classNames='form-control' placeholder='Mot de passe' value=password id='password'}}
+                                <button type="submit" class="btn btn-primary">Connexion</button>
+                            </div>
+                        </form>
                     {{/if}}
                 </div>
             </div>
