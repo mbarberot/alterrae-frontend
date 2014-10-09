@@ -1,8 +1,32 @@
 @import 'theme';
 @import 'bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'sidebar';
 
-html, body {
-    margin: 30px 0;
+// # Tweaks
+
+// ## Because of fixed-top navbar
+body {
+  padding-top: 50px;
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+.main .page-header {
+  margin-top: 0;
 }
 
 /* Fix progress bar label */
@@ -12,4 +36,3 @@ html, body {
 	width: 100%;
 	color: $text-color;
 }
-
