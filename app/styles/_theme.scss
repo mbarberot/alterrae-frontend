@@ -13,6 +13,8 @@ $navbar-inverse-link-color: darken($navbar-color, 20%);
 $navbar-inverse-link-hover-color: $navbar-color;
 $navbar-inverse-link-active-color: $navbar-color;
 
+$navbar-inverse-link-active-bg: $brand-primary;
+
 // Flat styles
 $radius: 2px;
 $border-radius-small: $radius;
