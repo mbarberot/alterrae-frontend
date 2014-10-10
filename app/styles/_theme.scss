@@ -1,9 +1,20 @@
 /** Override bootstrap variables */
 
 // Brand colors
-$brand-primary: #68341E; //#980098;
+$brand-primary: #1E685E;
+$brand-secondary: #68341E;
+
+// Navbar
+$navbar-inverse-bg: $brand-secondary;
+
+$navbar-color: #f8f8f8;
+$navbar-inverse-color: $navbar-color;
+$navbar-inverse-link-color: darken($navbar-color, 20%);
+$navbar-inverse-link-hover-color: $navbar-color;
+$navbar-inverse-link-active-color: $navbar-color;
 
 // Flat styles
-$border-radius-small:0px;
-$border-radius-base:0px;
-$border-radius-large:0px;
+$radius: 2px;
+$border-radius-small: $radius;
+$border-radius-base: $radius;
+$border-radius-large: $radius;
