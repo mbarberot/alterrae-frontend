@@ -1,25 +1,25 @@
 import DS from "ember-data";
 
-var User = DS.Model.extend({
-    username: DS.attr('string')
+var Player = DS.Model.extend({
+    user: DS.belongsTo('user')
 });
 
-User.reopenClass({
+Player.reopenClass({
     FIXTURES: [
         {
             id: 1,
-            username: "admin"
+            user : "1"
         },
         {
             id: 2,
-            username: "Dale"
+            user: "2"
         },
         {
             id: 3,
-            username: "Mel"
+            user: "3"
         }
     ]
 });
 
 export
-    default User;
+    default Player;
