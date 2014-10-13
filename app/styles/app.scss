@@ -29,6 +29,20 @@ body {
   margin-top: 0;
 }
 
+.footer {
+  position: absolute;
+  bottom:0;
+  height:40px;
+  width:100%;
+  background-color: $brand-secondary; 
+  color:#f8f8f8;
+  z-index:20;
+}
+
+#copyright {
+  margin: 10px 0;
+}
+
 /* Fix progress bar label */
 .progress span {
 	position: absolute;

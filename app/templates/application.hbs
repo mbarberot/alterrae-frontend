@@ -12,12 +12,9 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    {{#view "nav-view"}}
-                        {{#link-to "posts"}}Actualités{{/link-to}}
-                    {{/view}}
-                    {{#view "nav-view"}}
-                        {{#link-to "game"}}Jeu{{/link-to}}
-                    {{/view}}
+                    {{#view "nav-view"}}{{#link-to "posts"}}Actualités{{/link-to}}{{/view}}
+                    {{#view "nav-view"}}{{#link-to "game"}}Jeu{{/link-to}}{{/view}}
+                    {{#view "nav-view"}}{{#link-to "login"}}Connexion{{/link-to}}{{/view}}
                 </ul>
 
                 <div class="navbar-form navbar-right">
@@ -41,5 +38,14 @@
 
     {{outlet}}
     
+    <div class="footer">
+        <div class="container-fluid">
+            
+                <p id="copyright" class="text-center">&copy; Sistearth.com - Tous droits réservés. Reproduction interdite sans autorisation.</p>
+            
+        </div>
+    </div>
+    
+
 </div>
 
