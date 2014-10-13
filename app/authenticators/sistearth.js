@@ -52,12 +52,4 @@ var SistearthAuthenticator = Base.extend({
   }
 });
 
-Ember.Application.initializer({
-  name: 'authentication',
-  before: 'simple-auth',
-  initialize: function(container) {
-    container.register('authenticator:sistearth', SistearthAuthenticator);
-  }
-});
-
 export default SistearthAuthenticator;
