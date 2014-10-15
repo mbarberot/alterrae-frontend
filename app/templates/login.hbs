@@ -1,20 +1,31 @@
 <div class="container">
     <div class="row">
-    	<div id="post" class="main col-md-8 col-md-offset-2">
-    		<h1 class="page-header">Connexion au jeu</h1>
-    		<div class="well">
-				<form role="form" {{action 'authenticate' on='submit'}}>
-					<div class="form-group">
-						<label for="username">Identifiant</label>
-						{{input type='text' classNames='form-control' placeholder='Identifiant' value=identification id='identification'}}
-					</div>
-					<div class="form-group">
-						<label for="password">Mot de passe</label>
-				        {{input type='password' classNames='form-control' placeholder='Mot de passe' value=password id='password'}}
-				    </div>
-				    <button type="submit" class="btn btn-primary">Connexion</button>
-				</form>
-			</div>
+    	<div id="login-page">
+            {{#if session.isAuthenticated}}
+            <h1 class="page-header">Connexion au jeu</h1>
+            <a {{action 'invalidateSession'}} class="btn btn-primary">Déconnexion</a>
+            {{else}}
+            <h1 class="page-header">Connexion au jeu</h1>   
+            <form role="form" {{action 'authenticate' on='submit'}} class="form-horizontal col-md-6">
+                <div class="form-group">
+                    <label for="identification" class="col-sm-4 control-label">Identifiant</label>
+                    <div class="col-sm-8">
+                        {{input type='text' classNames='form-control' placeholder='Identifiant' value=identification id='identification'}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-4 control-label">Mot de passe</label>
+                    <div class="col-sm-8">
+                        {{input type='password' classNames='form-control' placeholder='Mot de passe' value=password id='password'}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <button type="submit" class="btn btn-primary">Connexion</button>
+                    </div>
+                </div>
+            </form>
+            {{/if}}
 		</div>
 	</div>
 </div>
