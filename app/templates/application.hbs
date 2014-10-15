@@ -35,12 +35,9 @@
                 <ul class="nav navbar-nav pull-right">
                    {{#if session.isAuthenticated}}
                         {{#view "nav-view"}}{{#link-to "game"}}Jeu{{/link-to}}{{/view}}
-                        <!--                            {{#view "nav-view"}}{{#link-to "account"}}Compte{{/link-to}}{{/view}} TODO -->
                     {{else}}
-<!--
                         {{#view "nav-view"}}{{#link-to "login"}}Connexion{{/link-to}}{{/view}}
                         {{#view "nav-view"}}{{#link-to "register"}}Inscription{{/link-to}}{{/view}}
--->
                     {{/if}}
                 </ul> 
             </div>
