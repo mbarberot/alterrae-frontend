@@ -2,10 +2,17 @@
     <div class="row">
     	<div id="login-page">
             {{#if session.isAuthenticated}}
-            <h1 class="page-header">Connexion au jeu</h1>
+            <h1 class="page-header">Connexion au jeu</h1>  
             <a {{action 'invalidateSession'}} class="btn btn-primary">Déconnexion</a>
             {{else}}
-            <h1 class="page-header">Connexion au jeu</h1>   
+            <h1 class="page-header">Connexion au jeu</h1>
+            {{#if errorMessage}}
+            <div class="alert alert-danger">
+                <p>
+                    Identifiant ou mot de passe incorrect
+                </p>
+            </div>
+            {{/if}}           
             <form role="form" {{action 'authenticate' on='submit'}} class="form-horizontal col-md-6">
                 <div class="form-group">
                     <label for="identification" class="col-sm-4 control-label">Identifiant</label>
