@@ -1,5 +1,11 @@
-import Ember from "ember";
+import Ember from 'ember';
 
-var RegisterRoute = Ember.Route.extend({});
-
-export default RegisterRoute;
+export
+default Ember.Route.extend({
+    model: function () {
+        return this.store.createRecord('user');
+    },
+    setupController: function (controller, user) {
+        controller.set('model', user);
+    }
+});
