@@ -3,11 +3,11 @@ import DS from "ember-data";
 export default DS.RESTSerializer.extend({
     extractFindAll: function (store, type, payload) {
         
-        var authors = payload.posts.getEach('author')
+        var authors = payload.posts.getEach('author');
         payload.users = authors;
         
         payload.posts.forEach(
-            function(item, index, enumerable) {
+            function(item) {
                 var author = item.author;
                 item.user = author.id;         
             }
