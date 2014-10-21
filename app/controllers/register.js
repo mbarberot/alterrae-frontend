@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export
-default Ember.ObjectController.extend({
+default Ember.Controller.extend({
     errorPassword: false,
     errorEmail: false,
     actions: {
@@ -14,9 +14,12 @@ default Ember.ObjectController.extend({
             this.errorPassword = (password !== passwordConfirmation);
             this.errorEmail = (email !== emailConfirmation);
             if (!this.errorEmail && !this.errorPassword) {
-                var user = this.model;
+                var user = this.store.createRecord('user', {
+                    username: username,
+                    password: password,
+                    email:email
+                });
                 console.log(user);
-                console.log(user.email);
                 user.save();
             }
         }
