@@ -6,7 +6,7 @@ default Ember.Controller.extend({
     errorEmail: false,
     actions: {
         register: function () {
-            var username = this.get('username'); // pourquoi ?!
+            var username = this.get('username');
             var password = this.get('password');
             var passwordConfirmation = this.get('passwordConfirmation');
             var email = this.get('email');
