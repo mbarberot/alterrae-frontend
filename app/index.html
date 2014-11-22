@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{content-for 'head'}}
     <title>Sistearth 4</title>
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/sistearth-frontend.css">
-  </head>
-  <body>
-    <script> 
-      window.SistearthFrontendENV = {{ENV}};
-      window.ENV = window.SistearthFrontendENV;
-      window.EmberENV = window.SistearthFrontendENV.EmberENV;
+</head>
+
+<body>
+    {{content-for 'body'}}
+<!--
+    <script>
+        window.SistearthFrontendENV = {
+            {
+                ENV
+            }
+        };
+        window.ENV = window.SistearthFrontendENV;
+        window.EmberENV = window.SistearthFrontendENV.EmberENV;
     </script>
+-->
     <script src="assets/vendor.js"></script>
     <script src="assets/sistearth-frontend.js"></script>
+<!--
     <script>
-      window.SistearthFrontend = require('sistearth-frontend/app')['default'].create(SistearthFrontendENV.APP);
+        window.SistearthFrontend = require('sistearth-frontend/app')['default'].create(SistearthFrontendENV.APP);
     </script>
-  </body>
+-->
+</body>
+
 </html>
