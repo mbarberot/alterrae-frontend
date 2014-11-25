@@ -5,20 +5,10 @@ var Post = DS.Model.extend({
     title: DS.attr('string'),
     text: DS.attr('string'),
     created_at: DS.attr('string'),
-    author: DS.belongsTo('user')
+    author: DS.belongsTo('user', {
+        async: true
+    })
 });
 
-Post.reopen({
-    attributes: function () {
-        var model = this;
-        return Ember.keys(this.get('data')).map(function (key) {
-            return Ember.Object.create({
-                model: model,
-                key: key,
-                valueBinding: 'model.' + key
-            });
-        });
-    }.property()
-});
-
-export default Post;
+export
+default Post;
