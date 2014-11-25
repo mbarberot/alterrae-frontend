@@ -12,7 +12,8 @@ module.exports = function(environment) {
       'font-src': "'self'",
       'connect-src': "'self' https://api.sistearth.com",
       'img-src': "'self'",
-      'style-src': "'self' 'unsafe-inline'"
+      'style-src': "'self' 'unsafe-inline'",
+      'report-uri': "http://localhost:4200"
     },
     EmberENV: {
       FEATURES: {
