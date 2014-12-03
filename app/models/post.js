@@ -1,7 +1,7 @@
-import Ember from "ember";
 import DS from "ember-data";
 
-var Post = DS.Model.extend({
+export
+default DS.Model.extend({
     title: DS.attr('string'),
     text: DS.attr('string'),
     created_at: DS.attr('string'),
@@ -9,6 +9,3 @@ var Post = DS.Model.extend({
         async: true
     })
 });
-
-export
-default Post;

@@ -1,7 +1,8 @@
 import Ember from "ember";
 /* global moment */
 
-var PostController = Ember.ObjectController.extend({
+export
+default Ember.ObjectController.extend({
     accordionHref: function (key, value) {
         var model = this.get('model');
 
@@ -18,7 +19,7 @@ var PostController = Ember.ObjectController.extend({
         }
     }.property('model.id'),
 
-    formattedDate: function(key, value) {
+    formattedDate: function (key, value) {
         var model = this.get('model');
 
         if (value === undefined) {
@@ -26,14 +27,12 @@ var PostController = Ember.ObjectController.extend({
         }
     }.property('model.created_at'),
 
-    authorName: function(key, value) {
+    authorName: function (key, value) {
         var model = this.get('model');
-        if(value === undefined) {
+        if (value === undefined) {
             return model.get('author.username').capitalize();
         }
     }.property('model.author.username')
 
 
 });
-
-export default PostController;
