@@ -3,76 +3,84 @@
         <div id="index" class="main">
             <h1 class="page-header">Inscription</h1>
             <form role="form" class="form-horizontal col-md-12" {{action 'register' on='submit' }}>
-                <div class="form-group">
+                <div {{bind-attr class=":form-group errors.username:has-error" }}>
                     <label for "username" class="col-sm-2 control-label">Identifant</label>
                     <div class="col-sm-6">
                         {{input type='text' classNames='form-control' id='username' placeholder='Identifiant' value=username}}
                     </div>
+                    <div class="col-sm-4">
+                        {{#if errors.username }}
+                        <p class="text-danger">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            {{errors.username}}
+                        </p>
+                        {{/if}}
+                    </div>
                 </div>
                 <hr/>
 
-                <div {{bind-attr class=":form-group checkPassword::has-error" }}>
+                <div {{bind-attr class=":form-group errors.password:has-error" }}>
                     <label for="password" class="col-sm-2 control-label">Mot de passe</label>
                     <div class="col-sm-6">
                         {{input type='password' classNames='form-control' id='password' placeholder='Mot de passe' value=password}}
                     </div>
                     <div class="col-sm-4">
-                        {{#unless checkPassword}}
+                        {{#if errors.password}}
                         <p class="text-danger">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            Les mots de passes ne correspondent pas.
+                            {{errors.password}}
                         </p>
-                        {{/unless}}
+                        {{/if}}
                     </div>
                 </div>
-                <div {{bind-attr class=":form-group checkPassword::has-error" }}>
+                <div {{bind-attr class=":form-group errors.passwordConfirmation:has-error" }}>
                     <label for="password-confirmation" class="col-sm-2 control-label">Confirmation</label>
                     <div class="col-sm-6">
                         {{input type='password' classNames='form-control' id='password-confirmation' placeholder='Confirmation du mot de passe' value=passwordConfirmation}}
                     </div>
                     <div class="col-sm-4">
-                        {{#unless checkPassword}}
+                        {{#if errors.passwordConfirmation}}
                         <p class="text-danger">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            Les mots de passes ne correspondent pas.
+                            {{errors.passwordConfirmation}}
                         </p>
-                        {{/unless}}
+                        {{/if}}
                     </div>
                 </div>
                 <hr/>
-                <div {{bind-attr class=":form-group checkEmail::has-error" }}>
+                <div {{bind-attr class=":form-group errors.email:has-error" }}>
                     <label for="email" class="col-sm-2 control-label">E-mail</label>
                     <div class="col-sm-6">
                         {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=email}}
                     </div>
                     <div class="col-sm-4">
-                        {{#unless checkEmail}}
+                        {{#if errors.email}}
                         <p class="text-danger">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            Les adresses e-mails ne correspondent pas.
+                            {{errors.email}}
                         </p>
-                        {{/unless}}
+                        {{/if}}
                     </div>
 
                 </div>
-                <div {{bind-attr class=":form-group checkEmail::has-error" }}>
+                <div {{bind-attr class=":form-group errors.emailConfirmation:has-error" }}>
                     <label for="email-confirmation" class="col-sm-2 control-label">Confirmation</label>
                     <div class="col-sm-6">
                         {{input type='email' classNames='form-control' id='email-confirmation' placeholder='email@example.com' value=emailConfirmation}}
                     </div>
                     <div class="col-sm-4">
-                        {{#unless checkEmail}}
+                        {{#if errors.emailConfirmation}}
                         <p class="text-danger">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            Les adresses e-mails ne correspondent pas.
+                            {{errors.emailConfirmation}}
                         </p>
-                        {{/unless}}
+                        {{/if}}
                     </div>
                 </div>
                 <hr/>
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-4">
-                        <button type="submit" class="btn btn-default col-sm-4" {{bindAttr disabled="cannotSubmit" }}>Valider</button>
+                        <button type="submit" class="btn btn-default col-sm-4" {{bindAttr disabled="isInvalid" }}>Valider</button>
                     </div>
                 </div>
             </form>

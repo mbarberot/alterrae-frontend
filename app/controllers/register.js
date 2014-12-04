@@ -1,22 +1,37 @@
 import Ember from 'ember';
+import EmberValidations from 'ember-validations';
 
 export
-default Ember.ObjectController.extend({
-    checkPassword: function () {
-        var password = this.get("password");
-        var passwordConfirmation = this.get("passwordConfirmation");
-        return password === passwordConfirmation;
-    }.property("model.password", "passwordConfirmation"),
-
-    checkEmail: function () {
-        var email = this.get("email");
-        var emailConfirmation = this.get("emailConfirmation");
-        return email === emailConfirmation;
-    }.property("model.email", "emailConfirmation"),
-
-    cannotSubmit: function () {
-        return !this.get("checkPassword") || !this.get("checkEmail");
-    }.property("checkPassword", "checkEmail"),
+default Ember.ObjectController.extend(EmberValidations.Mixin, {
+    validations: {
+        username: {
+            presence: {
+                message: "Champ obligatoire"
+            }
+        },
+        email: {
+            presence: {
+                message: "Champ obligatoire"
+            },
+            confirmation: {
+                message: "Les adresses e-mails ne correspondent pas"
+            }
+        },
+        password: {
+            presence: {
+                message: "Champ obligatoire"
+            },
+            confirmation: {
+                message: "Les mots de passes ne correspondent pas"
+            },
+            length: {
+                minimum: 8,
+                messages: {
+                    tooShort: "Le mot de passe doit faire au moins 8 caractères de long"
+                }
+            }
+        }
+    },
 
     actions: {
         register: function () {
