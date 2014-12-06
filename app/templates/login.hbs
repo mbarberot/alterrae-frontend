@@ -1,19 +1,16 @@
 <div class="container">
     <div class="row">
-    	<div id="login-page">
-            {{#if session.isAuthenticated}}
-            <h1 class="page-header">Connexion au jeu</h1>  
-            <a {{action 'invalidateSession'}} class="btn btn-primary">Déconnexion</a>
-            {{else}}
+        <div id="login-page">
             <h1 class="page-header">Connexion au jeu</h1>
+            {{#unless session.isAuthenticated}}
             {{#if errorMessage}}
             <div class="alert alert-danger">
                 <p>
                     Identifiant ou mot de passe incorrect
                 </p>
             </div>
-            {{/if}}           
-            <form role="form" {{action 'authenticate' on='submit'}} class="form-horizontal col-md-6">
+            {{/if}}
+            <form role="form" {{action 'authenticate' on='submit' }} class="form-horizontal col-md-6">
                 <div class="form-group">
                     <label for="identification" class="col-sm-4 control-label">Identifiant</label>
                     <div class="col-sm-8">
@@ -32,7 +29,7 @@
                     </div>
                 </div>
             </form>
-            {{/if}}
-		</div>
-	</div>
+            {{/unless}}
+        </div>
+    </div>
 </div>
