@@ -1,0 +1,12 @@
+{{#if messages}}
+<ul class="text-primary error-list">
+    {{#each messages}}
+    <li>
+        <p>
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            {{this}}
+        </p>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}

@@ -15,8 +15,7 @@ $navbar-inverse-link-active-color: $navbar-color;
 
 $navbar-inverse-link-active-bg: $brand-primary;
 
-// Flat styles
-$radius: 2px;
-$border-radius-small: $radius;
-$border-radius-base: $radius;
-$border-radius-large: $radius;
+// Forms
+$state-primary-text: $brand-primary;
+$state-primary-bg: lighten($brand-primary, 50%);
+$state-primary-border: darken(adjust-hue($state-primary-bg, -10), 5%);
