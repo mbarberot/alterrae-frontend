@@ -2,9 +2,19 @@
 
 module.exports = function(environment) {
   var ENV = {
+    modulePrefix: 'sistearth-frontend',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+      'font-src': "'self'",
+      'connect-src': "'self' https://api.sistearth.com",
+      'img-src': "'self'",
+      'style-src': "'self' 'unsafe-inline'",
+      'report-uri': "http://localhost:4200"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -18,6 +28,10 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    routeAfterAuthentication: '/game'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -27,7 +41,14 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    // Testem prefers this...
+    ENV.baseURL = '/';
+    ENV.locationType = 'auto';
 
+    // keep test console output quieter
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
+    ENV.APP.rootElement = '#ember-testing';
   }
 
   if (environment === 'production') {

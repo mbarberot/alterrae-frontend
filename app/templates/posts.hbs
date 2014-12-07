@@ -1,7 +1,14 @@
-<h1>Actualités</h1>
-
-<ul>
- {{#each model}}
- <li>{{#link-to 'post' this}}{{this.title}}{{/link-to}}</li>
-  {{/each}}
-</ul>
+<div class="container">
+    <div class="row">
+    	<div id="posts" class="main">
+			<h1 class="page-header">Actualités</h1>
+			<ul>
+				{{#each model}}
+					<li>
+						{{#link-to 'post' this}}{{this.title}}{{/link-to}}
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</div>	

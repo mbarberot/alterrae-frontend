@@ -1,6 +1,62 @@
-@import 'vendor/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'theme';
+@import 'bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'sidebar';
 
-/* Put your CSS here */
-html, body {
-    margin: 30px 0;
+// # Tweaks
+
+// ## Because of fixed-top navbar
+body {
+  padding-top: 50px;
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+.main .page-header {
+  margin-top: 0;
+}
+
+.footer {
+  position: relative;
+  bottom:0;
+  height:40px;
+  width:100%;
+  background-color: $brand-secondary; 
+  color:#f8f8f8;
+  z-index:20;
+}
+
+#copyright {
+  margin: 10px 0;
+}
+
+/* Fix progress bar label */
+.progress span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	color: $text-color;
+}
+
+.error-list {
+    list-style:none;
+    padding-left:0;
+    padding-top:7px
+}
+
+.form-group-primary {
+  @include form-control-validation($state-primary-text, $state-primary-text, $state-primary-bg);
 }

@@ -1,23 +1,28 @@
-<div class="panel-group" id="posts">
-    {{#each itemController="post"}}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#posts" {{bind-attr href="accordionHref"}}>
-                        {{title}}
-                    </a>
-                </h4>
-            </div>
-            <div {{bind-attr id="accordionId"}} class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div class="news-metadata">
-                        <p class="text-muted"><a href="#user/1">{{author}}</a>, {{creationDate}}</p>
+<div class="container">
+    <div class="row">
+        <div id="index" class="main">
+            <h1 class="page-header">Bienvenue sur Sistearth !</h1>
+            <div id="posts" class="panel-group">
+                {{#each itemController="post"}}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#posts" {{bind-attr href="accordionHref"}}>
+                                    {{title}}
+                                </a>
+                            </h4>
+                        </div>
+                        <div {{bind-attr id="accordionId"}} class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p class="post-metadata text-muted">{{formattedDate}}, par {{author.username}}.</p>
+                                <div class="post-body text-justify">
+                                    {{text}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="news-body text-justify">
-                        {{body}}
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
-    {{/each}}
+    </div>
 </div>

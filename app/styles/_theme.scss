@@ -1,0 +1,21 @@
+/** Override bootstrap variables */
+
+// Brand colors
+$brand-primary: #1E685E;
+$brand-secondary: #68341E;
+
+// Navbar
+$navbar-inverse-bg: $brand-secondary;
+
+$navbar-color: #f8f8f8;
+$navbar-inverse-color: $navbar-color;
+$navbar-inverse-link-color: darken($navbar-color, 20%);
+$navbar-inverse-link-hover-color: $navbar-color;
+$navbar-inverse-link-active-color: $navbar-color;
+
+$navbar-inverse-link-active-bg: $brand-primary;
+
+// Forms
+$state-primary-text: $brand-primary;
+$state-primary-bg: lighten($brand-primary, 50%);
+$state-primary-border: darken(adjust-hue($state-primary-bg, -10), 5%);

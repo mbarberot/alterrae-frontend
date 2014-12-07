@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <div id="index" class="main">
+            <h1 class="page-header">Inscription</h1>
+            <form role="form" class="form-horizontal col-md-12" {{action 'register' on='submit' }}>
+                {{#if errorMessage}}
+                <div class="alert alert-danger">
+                    <p>
+                        {{errorMessage}}
+                    </p>
+                </div>
+                {{/if}}
+                <div {{bind-attr class=":form-group errors.username:form-group-primary" }}>
+                    <label for "username" class="col-sm-2 control-label">Identifant</label>
+                    <div class="col-sm-6">
+                        {{input type='text' classNames='form-control' id='username' placeholder='Identifiant' value=username}}
+                    </div>
+                    <div class="col-sm-4">
+                        {{error-list messages=errors.username}}
+                    </div>
+                </div>
+                <hr/>
+
+                <div {{bind-attr class=":form-group errors.password:form-group-primary" }}>
+                    <label for="password" class="col-sm-2 control-label">Mot de passe</label>
+                    <div class="col-sm-6">
+                        {{input type='password' classNames='form-control' id='password' placeholder='Mot de passe' value=password}}
+                    </div>
+                    <div class="col-sm-4">
+                        {{error-list messages=errors.password}}
+                    </div>
+                </div>
+                <div {{bind-attr class=":form-group errors.passwordConfirmation:form-group-primary" }}>
+                    <label for="password-confirmation" class="col-sm-2 control-label">Confirmation</label>
+                    <div class="col-sm-6">
+                        {{input type='password' classNames='form-control' id='password-confirmation' placeholder='Confirmation du mot de passe' value=passwordConfirmation}}
+                    </div>
+                    <div class="col-sm-4">
+                        {{error-list messages=errors.passwordConfirmation}}
+                    </div>
+                </div>
+                <hr/>
+                <div {{bind-attr class=":form-group errors.email:form-group-primary" }}>
+                    <label for="email" class="col-sm-2 control-label">E-mail</label>
+                    <div class="col-sm-6">
+                        {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=email}}
+                    </div>
+                    <div class="col-sm-4">
+                        {{error-list messages=errors.email}}
+                    </div>
+
+                </div>
+                <div {{bind-attr class=":form-group errors.emailConfirmation:form-group-primary" }}>
+                    <label for="email-confirmation" class="col-sm-2 control-label">Confirmation</label>
+                    <div class="col-sm-6">
+                        {{input type='email' classNames='form-control' id='email-confirmation' placeholder='email@example.com' value=emailConfirmation}}
+                    </div>
+                    <div class="col-sm-4">
+                        {{error-list messages=errors.emailConfirmation}}
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <button type="submit" class="btn btn-primary col-sm-4" {{bind-attr disabled="isInvalid" }}>Valider</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Inscription réussie !</h4>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>

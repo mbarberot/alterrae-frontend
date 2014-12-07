@@ -17,18 +17,22 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/button.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js');
-app.import('vendor/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js');
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js');
+app.import('bower_components/moment/moment.js');
 
+app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff', {
+  destDir: 'fonts/bootstrap'
+});
 
 module.exports = app.toTree();
