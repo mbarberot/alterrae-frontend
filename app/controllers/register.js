@@ -35,13 +35,16 @@ default Ember.ObjectController.extend(EmberValidations.Mixin, {
 
     actions: {
         register: function () {
+            var _this = this;
             var user = this.get('model');
             var controller = this;
             user.save().then(function () {
                 // todo display a success message before(/after?) redirection
                 controller.transitionToRoute('/login');
-            }, function () {
-                // todo handling errors
+            }, function (error) {
+                console.log(error);
+                var message = JSON.parse(error.responseText)['message'];
+                _this.set('errorMessage', message);
             });
         }
     }

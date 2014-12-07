@@ -3,6 +3,13 @@
         <div id="index" class="main">
             <h1 class="page-header">Inscription</h1>
             <form role="form" class="form-horizontal col-md-12" {{action 'register' on='submit' }}>
+                {{#if errorMessage}}
+                <div class="alert alert-danger">
+                    <p>
+                        {{errorMessage}}
+                    </p>
+                </div>
+                {{/if}}
                 <div {{bind-attr class=":form-group errors.username:form-group-primary" }}>
                     <label for "username" class="col-sm-2 control-label">Identifant</label>
                     <div class="col-sm-6">
@@ -55,7 +62,7 @@
                 <hr/>
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-4">
-                        <button type="submit" class="btn btn-primary col-sm-4"  {{bind-attr disabled="isInvalid"}}>Valider</button>
+                        <button type="submit" class="btn btn-primary col-sm-4" {{bind-attr disabled="isInvalid" }}>Valider</button>
                     </div>
                 </div>
             </form>
