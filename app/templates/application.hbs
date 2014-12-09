@@ -26,8 +26,8 @@
                 {{/if}}
                 <ul class="nav navbar-nav navbar-right">
                     {{#if session.isAuthenticated}} 
-                        {{#view "nav-view"}}{{#link-to "user"}}Compte{{/link-to}}{{/view}} 
                         {{#view "nav-view"}}{{#link-to "game"}}Jeu{{/link-to}}{{/view}}
+                        {{#view "nav-view"}}{{#link-to "user"}}Compte{{/link-to}}{{/view}} 
                     {{else}} 
                         {{#view "nav-view"}}{{#link-to "login"}}Connexion{{/link-to}}{{/view}} 
                         {{#view "nav-view"}}{{#link-to "register"}}Inscription{{/link-to}}{{/view}} 
