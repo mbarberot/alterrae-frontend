@@ -10,7 +10,7 @@ Router.map(function() {
 	this.resource('posts');
     this.resource('post', { path: '/posts/:post_id' });
     this.resource('game');
-    this.resource('user');
+    this.resource('account');
     this.resource('register');
 });
 
