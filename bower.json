@@ -15,6 +15,7 @@
     "qunit": "~1.15.0",
     "bootstrap-sass-official": "~3.3.1",
     "moment": "~2.8.2",
-    "ember-simple-auth": "0.6.6"
+    "ember-simple-auth": "0.6.6",
+    "Faker": "~2.1.1"
   }
 }

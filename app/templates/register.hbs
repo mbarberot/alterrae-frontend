@@ -11,7 +11,7 @@
                 </div>
                 {{/if}}
                 <div {{bind-attr class=":form-group errors.username:form-group-primary" }}>
-                    <label for "username" class="col-sm-2 control-label">Identifant</label>
+                    <label for="username" class="col-sm-2 control-label">Identifant</label>
                     <div class="col-sm-6">
                         {{input type='text' classNames='form-control' id='username' placeholder='Identifiant' value=username}}
                     </div>
@@ -62,7 +62,7 @@
                 <hr/>
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-4">
-                        <button type="submit" class="btn btn-primary col-sm-4" {{bind-attr disabled="isInvalid" }}>Valider</button>
+                        <button id="submit" type="submit" class="btn btn-primary col-sm-4" {{bind-attr disabled="isInvalid" }}>Valider</button>
                     </div>
                 </div>
             </form>
@@ -81,7 +81,8 @@
                 <h4 class="modal-title" id="myModalLabel">Inscription réussie !</h4>
             </div>
             <div class="modal-body">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                {{#link-to 'login' class="btn btn-default" data-dismiss="modal"}}Fermer{{/link-to}}
+<!--                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>-->
             </div>
         </div>
     </div>
