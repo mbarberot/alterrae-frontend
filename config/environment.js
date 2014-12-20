@@ -28,10 +28,6 @@ module.exports = function(environment) {
     }
   };
 
-  ENV['simple-auth'] = {
-    routeAfterAuthentication: '/game'
-  };
-
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -43,11 +39,12 @@ module.exports = function(environment) {
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
-    ENV.locationType = 'auto';
+    ENV.locationType = 'none';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
+
     ENV.APP.rootElement = '#ember-testing';
   }
 
