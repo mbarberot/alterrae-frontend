@@ -40,10 +40,7 @@ default Ember.ObjectController.extend(EmberValidations.Mixin, {
             user.save().then(
                 function () {
                     Ember.$('#successModal')
-                        .modal('show')
-                        .on('hidden.bs.modal', function () {
-                            _this.transitionToRoute('/login');
-                        });
+                        .modal('show');
                 },
                 function (error) {
                     console.log(error);
