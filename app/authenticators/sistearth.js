@@ -6,9 +6,11 @@ default Base.extend({
 
     init: function () {},
 
-    restore: function (properties) {
-        return new Ember.RSVP.Promise(function (resolve, reject) {
-            if (!Ember.isEmpty(properties.user_token) && !Ember.isEmpty(properties.user_email)) {
+    restore: function(properties) {
+        var _this = this;
+        var propertiesObject = Ember.Object.create(properties);
+        return new Ember.RSVP.Promise(function(resolve, reject) {
+            if (!Ember.isEmpty(propertiesObject.get(_this.tokenAttributeName)) && !Ember.isEmpty(propertiesObject.get(_this.identificationAttributeName))) {
                 resolve(properties);
             } else {
                 reject();
