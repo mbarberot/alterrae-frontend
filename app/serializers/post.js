@@ -22,8 +22,6 @@ default DS.RESTSerializer.extend({
             posts: adaptedPosts
         };
         
-        console.log(payload_posts);
-        
         return this._super(store, type, payload_posts);
     }
 });
