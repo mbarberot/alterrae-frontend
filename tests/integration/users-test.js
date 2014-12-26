@@ -42,12 +42,17 @@ test('Should be able to register', function () {
     });
 });
 
+var snow = {
+    username: 'jon@snow.com',
+    password: 'jon@snow.com',
+    email: 'jon@snow.com'
+};
 
 test('Should be able to login', function () {
     expect(4);
     visit('/login');
-    fillIn('input#identification', user.username);
-    fillIn('input#password', user.password);
+    fillIn('input#identification', snow.username);
+    fillIn('input#password', snow.password);
     click('button#submit');
     andThen(function() {
         ok(find('div.alert-success'));
