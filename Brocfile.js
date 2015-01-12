@@ -29,6 +29,5 @@ app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstra
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js');
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js');
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js');
-app.import('bower_components/moment/moment.js');
 
 module.exports = app.toTree();
