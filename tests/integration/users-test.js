@@ -4,37 +4,29 @@ import {
 }
 from 'ember-qunit';
 import startApp from '../helpers/start-app';
-import faker from 'faker';
+import makeUser from '../helpers/make-user';
+import registerUser from '../helpers/register-user';
+import loginUser from '../helpers/login-user';
 
 var App;
 module('Users', {
-    setup: function () {
+    setup: function() {
         App = startApp();
     },
-    teardown: function () {
+    teardown: function() {
         Ember.run(App, App.destroy);
     }
 });
 
-var user = {
-    username: faker.internet.userName(),
-    password: faker.internet.password(),
-    email: faker.internet.email()
-};
+var user = makeUser();
 
-test('Should be able to register', function () {
+test('Should be able to register', function() {
     expect(4);
-    visit('/register');
-    fillIn('input#username', user.username);
-    fillIn('input#password', user.password);
-    fillIn('input#password-confirmation', user.password);
-    fillIn('input#email', user.email);
-    fillIn('input#email-confirmation', user.email);
-    click('button#submit');
-    andThen(function () {
+    registerUser(user);
+    andThen(function() {
         equal(true, find('#successModal').data('bs.modal').isShown);
         click('#successModal .modal-body a');
-        andThen(function () {
+        andThen(function() {
             equal(currentRouteName(), 'login');
             equal(currentPath(), 'login');
             equal(currentURL(), '/login');
@@ -42,24 +34,3 @@ test('Should be able to register', function () {
     });
 });
 
-var snow = {
-    username: 'jon@snow.com',
-    password: 'jon@snow.com',
-    email: 'jon@snow.com'
-};
-
-test('Should be able to login', function () {
-    expect(4);
-    visit('/login');
-    fillIn('input#identification', snow.username);
-    fillIn('input#password', snow.password);
-    click('button#submit');
-    andThen(function() {
-        ok(find('div.alert-success'));
-    });
-    andThen(function () {
-        equal(currentRouteName(), 'game');
-        equal(currentPath(), 'game');
-        equal(currentURL(), '/game');
-    });
-});

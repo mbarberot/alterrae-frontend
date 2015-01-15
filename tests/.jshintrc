@@ -2,6 +2,9 @@
   "predef": [
     "authenticateSession",
     "invalidateSession",
+    "currentSession",
+    "makeUser",
+    "registerUser",
     "document",
     "window",
     "location",
