@@ -7,7 +7,7 @@
             <h3>Suppression du compte</h3>
             <div class="alert alert-danger">
                 <p class="text-danger">
-                    <button id="delete" type="submit" class="btn btn-danger" {{action 'delete' on="click" }}>Supprimer le compte</button>
+                    <button id="delete" type="submit" class="btn btn-danger" {{action 'deleteSelf' on="click" }}>Supprimer le compte</button>
                     &nbsp;
                     <span class="glyphicon glyphicon-warning-sign"></span> Attention, la suppression du compte est irréversible. Aucune réclamation ne sera possible.
                 </p>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-password-confirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,7 +24,7 @@
                     <span aria-hidden="true">&times;</span>
                     <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                <h4 class="modal-title" id="confirm-password">Confirmation</h4>
             </div>
             <div class="modal-body">
                 <form class="horizontal-form" role="form">
@@ -33,8 +33,8 @@
                         {{input type="password" name="password" class="form-control" value=password}}
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-danger" data-dismiss="modal" {{action 'confirm' on="click"}}>Valider</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <button id="confirm-modal" type="submit" class="btn btn-danger" data-dismiss="modal" {{action 'confirmPassword' on="click"}}>Valider</button>
+                        <button id="cancel-modal" type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                     </div>
                 </form>
             </div>
