@@ -9,7 +9,7 @@ import registerUser from '../helpers/register-user';
 import loginUser from '../helpers/login-user';
 
 var App;
-module('Users', {
+module('Register', {
     setup: function() {
         App = startApp();
     },
