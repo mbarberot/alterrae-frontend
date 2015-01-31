@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 	model: function () {
-		var userId = this.get('session').get('content')['profile']['id'];
-		return this.get('store').find('user', userId);
+    var user = this.get('store').createRecord('user');
+    return this.get('store').adapterFor(user.constructor).getSelf(user.constructor.typeKey);
 	}
 });
