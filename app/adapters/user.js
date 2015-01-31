@@ -1,24 +1,26 @@
 import DS from 'ember-data';
 
 export
-default DS.RESTAdapter.extend({
-    host: 'https://api.sistearth.com',
-    namespace: 'api',
-    
-    // self methods
-    getSelf: function() {
-    	console.log("getSelf");
-    },
+  default DS.RESTAdapter.extend({
+  host: 'https://api.sistearth.com',
+  namespace: 'api',
 
-    deleteSelf: function() {
-    	console.log("deleteSelf");
-    },
+  // self methods
+  getSelf: function (typeKey) {
+    return this.ajax(this.buildSelfUrl(typeKey), 'GET');
+  },
 
-    changeSelfPassword: function() {
-    	console.log("changeSelfPassword");
-    },
+  deleteSelf: function (record, password) {
+    return this.ajax(this.buildSelfUrl(record.constructor.typeKey), "DELETE", {currentPassword: password});
+  },
 
-    changeSelfEmail: function() {
-    	console.log("changeSelfEmail");
-    }
+  changeSelfPassword: function () {
+  },
+
+  changeSelfEmail: function () {
+  },
+
+  buildSelfUrl: function (type) {
+    return this.buildURL(type) + "/self";
+  }
 });
