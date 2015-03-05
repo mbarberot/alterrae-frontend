@@ -22,15 +22,23 @@ var snow = {
     email: 'jon@snow.com'
 };
 
-test('Should be able to login', function() {
-    expect(4);
+test('Registered user should be able to login', function() {
+    expect(2);
     loginUser(snow);
     andThen(function() {
         ok(find('div.alert-success'));
     });
     andThen(function() {
         equal(currentRouteName(), 'game');
-        equal(currentPath(), 'game');
-        equal(currentURL(), '/game');
     });
+});
+
+test('Logged user should be able to logout', function() {
+  expect(3);
+  ok(find('button#logout'));
+  click('button#logout');
+  andThen(function() {
+    equal(currentRouteName(), 'index');
+    equal(currentSession().isAuthenticated, false);
+  });
 });

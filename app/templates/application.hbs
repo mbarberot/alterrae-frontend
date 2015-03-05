@@ -20,17 +20,17 @@
 
                 </ul>
                 {{#if session.isAuthenticated}}
-                <form class="navbar-form navbar-right"> 
-                    <a {{action 'invalidateSession'}} class="btn btn-primary">Déconnexion</a>
+                <form class="navbar-form navbar-right">
+                    <button {{action 'invalidateSession'}} id="logout" class="btn btn-primary">Déconnexion</button>
                 </form>
                 {{/if}}
                 <ul class="nav navbar-nav navbar-right">
-                    {{#if session.isAuthenticated}} 
+                    {{#if session.isAuthenticated}}
                         {{#view "nav-view"}}{{#link-to "game"}}Jeu{{/link-to}}{{/view}}
-                        {{#view "nav-view"}}{{#link-to "account"}}Compte{{/link-to}}{{/view}} 
-                    {{else}} 
-                        {{#view "nav-view"}}{{#link-to "login"}}Connexion{{/link-to}}{{/view}} 
-                        {{#view "nav-view"}}{{#link-to "register"}}Inscription{{/link-to}}{{/view}} 
+                        {{#view "nav-view"}}{{#link-to "account"}}Compte{{/link-to}}{{/view}}
+                    {{else}}
+                        {{#view "nav-view"}}{{#link-to "login"}}Connexion{{/link-to}}{{/view}}
+                        {{#view "nav-view"}}{{#link-to "register"}}Inscription{{/link-to}}{{/view}}
                     {{/if}}
                 </ul>
             </div>
