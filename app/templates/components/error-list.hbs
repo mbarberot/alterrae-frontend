@@ -1,10 +1,10 @@
 {{#if messages}}
 <ul class="text-primary error-list">
-    {{#each messages}}
+    {{#each message in messages}}
     <li>
         <p>
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            {{this}}
+            {{message}}
         </p>
     </li>
     {{/each}}
