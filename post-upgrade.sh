@@ -18,5 +18,5 @@ echo "Running 'ember generate' commands"
 
 ember generate ember-cli-simple-auth
 ember generate ember-cli-simple-auth-testing
-ember generate ember-cli-simple-auth-token
+ember generate simple-auth-token
 ember generate ember-faker

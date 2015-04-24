@@ -2,74 +2,81 @@
     <div class="row">
         <div id="index" class="main">
             <h1 class="page-header">Inscription</h1>
+
             <form role="form" class="form-horizontal col-md-12" {{action 'register' on='submit' }}>
-                {{#if errorMessage}}
-                <div class="alert alert-danger">
-                    <p>
-                        {{errorMessage}}
-                    </p>
-                </div>
-                {{/if}}
-                <div {{bind-attr class=":form-group errors.username:form-group-primary" }}>
+              {{#if controller.errorMessage}}
+                  <div class="alert alert-danger">
+                      <p>
+                        {{controller.errorMessage}}
+                      </p>
+                  </div>
+              {{/if}}
+                <div {{bind-attr class=":form-group controller.errors.username:form-group-primary" }}>
                     <label for="username" class="col-sm-2 control-label">Identifant</label>
+
                     <div class="col-sm-6">
-                        {{input type='text' classNames='form-control' id='username' placeholder='Identifiant' value=username}}
+                      {{input type='text' classNames='form-control' id='username' placeholder='Identifiant' value=controller.username}}
                     </div>
                     <div class="col-sm-4">
-                        {{error-list messages=errors.username}}
+                      {{error-list messages=controller.errors.username}}
                     </div>
                 </div>
                 <hr/>
 
-                <div {{bind-attr class=":form-group errors.password:form-group-primary" }}>
+                <div {{bind-attr class=":form-group controller.errors.password:form-group-primary" }}>
                     <label for="password" class="col-sm-2 control-label">Mot de passe</label>
+
                     <div class="col-sm-6">
-                        {{input type='password' classNames='form-control' id='password' placeholder='Mot de passe' value=password}}
+                      {{input type='password' classNames='form-control' id='password' placeholder='Mot de passe' value=controller.password}}
                     </div>
                     <div class="col-sm-4">
-                        {{error-list messages=errors.password}}
+                      {{error-list messages=controller.errors.password}}
                     </div>
                 </div>
-                <div {{bind-attr class=":form-group errors.passwordConfirmation:form-group-primary" }}>
+                <div {{bind-attr class=":form-group controller.errors.passwordConfirmation:form-group-primary" }}>
                     <label for="password-confirmation" class="col-sm-2 control-label">Confirmation</label>
+
                     <div class="col-sm-6">
-                        {{input type='password' classNames='form-control' id='password-confirmation' placeholder='Confirmation du mot de passe' value=passwordConfirmation}}
+                      {{input type='password' classNames='form-control' id='password-confirmation' placeholder='Confirmation du mot de passe' value=controller.passwordConfirmation}}
                     </div>
                     <div class="col-sm-4">
-                        {{error-list messages=errors.passwordConfirmation}}
+                      {{error-list messages=controller.errors.passwordConfirmation}}
                     </div>
                 </div>
                 <hr/>
-                <div {{bind-attr class=":form-group errors.email:form-group-primary" }}>
+                <div {{bind-attr class=":form-group controller.errors.email:form-group-primary" }}>
                     <label for="email" class="col-sm-2 control-label">E-mail</label>
+
                     <div class="col-sm-6">
-                        {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=email}}
+                      {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=controller.email}}
                     </div>
                     <div class="col-sm-4">
-                        {{error-list messages=errors.email}}
+                      {{error-list messages=controller.errors.email}}
                     </div>
 
                 </div>
-                <div {{bind-attr class=":form-group errors.emailConfirmation:form-group-primary" }}>
+                <div {{bind-attr class=":form-group controller.errors.emailConfirmation:form-group-primary" }}>
                     <label for="email-confirmation" class="col-sm-2 control-label">Confirmation</label>
+
                     <div class="col-sm-6">
-                        {{input type='email' classNames='form-control' id='email-confirmation' placeholder='email@example.com' value=emailConfirmation}}
+                      {{input type='email' classNames='form-control' id='email-confirmation' placeholder='email@example.com' value=controller.emailConfirmation}}
                     </div>
                     <div class="col-sm-4">
-                        {{error-list messages=errors.emailConfirmation}}
+                      {{error-list messages=controller.errors.emailConfirmation}}
                     </div>
                 </div>
                 <hr/>
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-4">
-                        <button id="submit" type="submit" class="btn btn-primary col-sm-4" {{bind-attr disabled="isInvalid" }}>Valider</button>
+                        <button id="submit" type="submit"
+                                class="btn btn-primary col-sm-4" {{bind-attr disabled="controller.isInvalid" }}>Valider
+                        </button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -81,8 +88,7 @@
                 <h4 class="modal-title" id="myModalLabel">Inscription réussie !</h4>
             </div>
             <div class="modal-body">
-                {{#link-to 'login' class="btn btn-default" data-dismiss="modal"}}Fermer{{/link-to}}
-<!--                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>-->
+              {{#link-to 'login' class="btn btn-default" data-dismiss="modal"}}Fermer{{/link-to}}
             </div>
         </div>
     </div>
