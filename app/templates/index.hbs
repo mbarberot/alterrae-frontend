@@ -14,7 +14,7 @@
                         </div>
                         <div {{bind-attr id="post.accordionId"}} class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p class="post-metadata text-muted">{{post.formattedDate}}, par {{post.model.author.username}}.</p>
+                                <p class="post-metadata text-muted">{{moment post.model.created_at 'LL'}}, par {{post.model.author.username}}.</p>
                                 <div class="post-body text-justify">
                                     {{post.model.text}}
                                 </div>

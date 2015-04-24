@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row">
-      {{#with controller as post}}
+      {{#with model as post}}
           <div id="post" class="main">
-              <h1 class="page-header">{{post.model.title}}</h1>
-              <p class="text-muted">{{post.formattedDate}}, par {{post.model.author.username}}.</p>
+              <h1 class="page-header">{{model.title}}</h1>
+              <p class="text-muted">{{moment model.created_at 'LL'}}, par {{model.author.username}}.</p>
               <br/>
-              <p id="post-body" class="text-justify">{{post.model.text}}</p>
+              <p id="post-body" class="text-justify">{{model.text}}</p>
           </div>
       {{/with}}
     </div>
