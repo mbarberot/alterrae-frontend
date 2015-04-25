@@ -2,7 +2,12 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  'ember-cli-bootstrap-sass': {
+    'components': false,
+    'importBootstrapJS': true
+  }
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -16,18 +21,5 @@ var app = new EmberApp();
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
-
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js');
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js');
 
 module.exports = app.toTree();

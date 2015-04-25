@@ -1,5 +1,5 @@
 @import 'theme';
-@import 'bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'bootstrap';
 @import 'sidebar';
 
 // # Tweaks
@@ -34,7 +34,7 @@ body {
   bottom:0;
   height:40px;
   width:100%;
-  background-color: $brand-secondary; 
+  background-color: $brand-secondary;
   color:#f8f8f8;
   z-index:20;
 }
