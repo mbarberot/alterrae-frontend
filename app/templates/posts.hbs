@@ -1,14 +1,12 @@
-<div class="container">
-    <div class="row">
-    	<div id="posts" class="main">
-			<h1 class="page-header">Actualités</h1>
-			<ul>
-				{{#each post in model}}
-					<li>
-						{{#link-to 'post' post}}{{post.title}}{{/link-to}}
-					</li>
-				{{/each}}
-			</ul>
-		</div>
-	</div>
+<div class="row">
+    <div id="posts" class="main">
+        <h1 class="page-header">Actualités</h1>
+        <ul>
+          {{#each post in model}}
+              <li>
+                {{#link-to 'post' post}}{{post.title}}{{/link-to}}
+              </li>
+          {{/each}}
+        </ul>
+    </div>
 </div>

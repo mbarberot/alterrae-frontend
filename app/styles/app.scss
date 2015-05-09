@@ -14,17 +14,18 @@ body {
   border-bottom:solid 2px $brand-primary;
 }
 
-.main {
+#main {
   padding: 20px;
+  min-height: 500px;
 }
 @media (min-width: 768px) {
-  .main {
+  #main {
     padding-right: 40px;
     padding-left: 40px;
   }
 }
 
-.main .page-header {
+#main .page-header {
   margin-top: 0;
 }
 
@@ -35,10 +36,6 @@ body {
   width:100%;
   border-top:solid 2px $brand-primary;
   z-index:20;
-}
-
-#content {
-  min-height: 500px;
 }
 
 #copyright {

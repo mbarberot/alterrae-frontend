@@ -1,34 +1,31 @@
-<div class="container">
-    <div class="row">
-        <div id="index" class="main">
-            <h1>Supprimer le compte</h1>
+<div class="row">
 
-            <p class="text-danger">
-                <b>
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    Attention : cette action est irréversible.
-                </b>
-            </p>
+    <h1>Supprimer le compte</h1>
 
-            <div id="account-delete-start">
-                <button class="btn btn-danger"
-                        onclick="$('#account-delete-start').toggleClass('hidden');$('#delete-validation').toggleClass('hidden');">
-                    Supprimer le compte
-                </button>
-            </div>
-            <form class="form-inline">
-                <div id="delete-validation" class="hidden">
-                    <div class="input-group">
-                        <input type="password" id="delete-password" class="form-control"
-                               placeholder="Mot de passe"/>
+    <p class="text-danger">
+        <b>
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Attention : cette action est irréversible.
+        </b>
+    </p>
 
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-danger">Valider</button>
-                          {{#link-to 'account' class="btn btn-primary"}}Annuler{{/link-to}}
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div id="account-delete-start">
+        <button class="btn btn-danger"
+                onclick="$('#account-delete-start').toggleClass('hidden');$('#delete-validation').toggleClass('hidden');">
+            Supprimer le compte
+        </button>
     </div>
+    <form class="form-inline">
+        <div id="delete-validation" class="hidden">
+            <div class="input-group">
+                <input type="password" id="delete-password" class="form-control"
+                       placeholder="Mot de passe"/>
+
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-danger">Valider</button>
+                  {{#link-to 'account' class="btn btn-primary"}}Annuler{{/link-to}}
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
