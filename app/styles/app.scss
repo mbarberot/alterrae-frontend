@@ -1,6 +1,6 @@
 @import 'theme';
 @import 'bootstrap';
-@import 'sidebar';
+//@import 'sidebar';
 
 // # Tweaks
 
@@ -11,9 +11,8 @@ body {
 
 .navbar-fixed-top {
   border: 0;
+  border-bottom:solid 2px $brand-primary;
 }
-
-
 
 .main {
   padding: 20px;
@@ -34,13 +33,17 @@ body {
   bottom:0;
   height:40px;
   width:100%;
-  background-color: $brand-secondary;
-  color:#f8f8f8;
+  border-top:solid 2px $brand-primary;
   z-index:20;
+}
+
+#content {
+  min-height: 500px;
 }
 
 #copyright {
   margin: 10px 0;
+  color:$brand-primary;
 }
 
 /* Fix progress bar label */
@@ -57,6 +60,6 @@ body {
     padding-top:7px
 }
 
-.form-group-primary {
-  @include form-control-validation($state-primary-text, $state-primary-text, $state-primary-bg);
-}
+//.form-group-primary {
+//  @include form-control-validation($state-primary-text, $state-primary-text, $state-primary-bg);
+//}
