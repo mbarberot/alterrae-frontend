@@ -11,7 +11,11 @@ Router.map(function() {
   this.resource('post', { path: '/posts/:post_id' });
   this.resource('game');
   this.resource('register');
-  this.resource('account');
+  this.resource('account', function() {
+    this.route('change-email');
+    this.route('change-password');
+    this.route('delete');
+  });
 });
 
 export default Router;
