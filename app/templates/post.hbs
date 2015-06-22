@@ -1,12 +1,12 @@
-<div class="row">
-  {{#with model as post}}
-      <div id="post" class="main">
-          <h1 class="page-header">{{model.title}}</h1>
-
-          <p class="text-muted">{{moment model.created_at 'LL'}}, par {{model.author.username}}.</p>
-          <br/>
-
-          <p id="post-body" class="text-justify">{{model.text}}</p>
-      </div>
-  {{/with}}
+<div class="container">
+    <div class="row">
+      {{#with model as |post|}}
+          <div id="post" class="main">
+              <h1 class="page-header">{{model.title}}</h1>
+              <p class="text-muted">{{moment model.created_at 'LL'}}, par {{model.author.username}}.</p>
+              <br/>
+              <p id="post-body" class="text-justify">{{model.text}}</p>
+          </div>
+      {{/with}}
+    </div>
 </div>

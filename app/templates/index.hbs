@@ -1,29 +1,28 @@
-<div class="row">
-    <div id="index" class="main">
-        <h1 class="page-header">Bienvenue sur Sistearth !</h1>
-
-        <div id="posts" class="panel-group">
-          {{#each post in controller}}
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                      <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#posts" {{bind-attr href="post.accordionHref"}}>
-                            {{post.model.title}}
-                          </a>
-                      </h4>
-                  </div>
-                  <div {{bind-attr id="post.accordionId"}} class="panel-collapse collapse">
-                      <div class="panel-body">
-                          <p class="post-metadata text-muted">{{moment post.model.created_at 'LL'}},
-                              par {{post.model.author.username}}.</p>
-
-                          <div class="post-body text-justify">
-                            {{post.model.text}}
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          {{/each}}
+<div class="container">
+    <div class="row">
+        <div id="index" class="main">
+            <h1 class="page-header">Bienvenue sur Sistearth !</h1>
+            <div id="posts" class="panel-group">
+                {{#each controller as |post|}}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#posts" {{bind-attr href="post.accordionHref"}}>
+                                    {{post.model.title}}
+                                </a>
+                            </h4>
+                        </div>
+                        <div {{bind-attr id="post.accordionId"}} class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p class="post-metadata text-muted">{{moment post.model.created_at 'LL'}}, par {{post.model.author.username}}.</p>
+                                <div class="post-body text-justify">
+                                    {{post.model.text}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
         </div>
     </div>
 </div>
