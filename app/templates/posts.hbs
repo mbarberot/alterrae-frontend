@@ -3,7 +3,7 @@
     	<div id="posts" class="main">
 			<h1 class="page-header">Actualités</h1>
 			<ul>
-				{{#each post in model}}
+				{{#each model as |post|}}
 					<li>
 						{{#link-to 'post' post}}{{post.title}}{{/link-to}}
 					</li>

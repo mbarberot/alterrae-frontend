@@ -3,7 +3,7 @@
         <div id="index" class="main">
             <h1 class="page-header">Bienvenue sur Sistearth !</h1>
             <div id="posts" class="panel-group">
-                {{#each post in controller}}
+                {{#each controller as |post|}}
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
