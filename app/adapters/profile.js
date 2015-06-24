@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export
@@ -5,12 +6,13 @@ export
   host: 'https://api.sistearth.com',
   namespace: 'api/users',
 
-  pathForType: function(type) {
+  pathForType: function (type) {
     var camelized = Ember.String.camelize(type);
     return Ember.String.singularize(camelized);
   },
 
-  getProfile: function() {
-    return this.ajax(this.buildURL('profile', null, null, 'findAll'), 'GET');
+  urlForFind: function () {
+    console.log('urlForFind');
+    return this.buildURL('profile', null, null, 'findAll');
   }
 });

@@ -18,5 +18,8 @@
             </div>
         </h1>
     </div>
-    <p><b>Email :</b> jon@doe.com</p>
+  {{#with model as |profile|}}
+      <p><b>Email :</b> {{profile.email}}</p>
+  {{/with}}
+
 </div>
