@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label for="username" class="col-sm-3 control-label">{{label}}</label>
+
+  <div class="col-sm-5">
+    {{yield}}
+  </div>
+  <div class="col-sm-4">
+    {{#if errors}}
+      <ul class="text-primary error-list">
+        {{#each error in errors}}
+          <li>
+            <p>
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              {{error}}
+            </p>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+</div>
