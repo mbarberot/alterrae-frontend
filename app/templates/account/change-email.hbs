@@ -1,55 +1,32 @@
 <div class="row">
-    <h1 class="page-header">
-        Changer l&apos;adresse e-mail
-        <div class="pull-right">
-          {{#link-to 'account.index' class="btn btn-default"}}
-              <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-              Retour
-          {{/link-to}}
+  <h1 class="page-header">
+    Changer l&apos;adresse e-mail
+    <div class="pull-right">
+      {{#link-to 'account.index' class="btn btn-default" }}
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        Retour
+      {{/link-to}}
+    </div>
+  </h1>
+
+  <form class="form-horizontal" {{action 'update' on='submit' }}>
+    {{#auto-validated-input label="Nouvelle adresse e-mail" errors=controller.errors.email}}
+      {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=controller.email}}
+    {{/auto-validated-input}}
+    {{#auto-validated-input label="Confirmation" errors=controller.errors.emailConfirmation}}
+      {{input type='email' classNames='form-control' id='email-confirmation' placeholder='email@example.com' value=controller.emailConfirmation}}
+    {{/auto-validated-input}}
+    {{#auto-validated-input label="Mot de passe" errors=controller.errors.password}}
+      {{input type='password' classNames='form-control' id='password' placeholder='mot de passe' value=controller.password}}
+    {{/auto-validated-input}}
+
+    <div class="form-group">
+      <div class="col-sm-5 col-sm-offset-3">
+        <div class="btn-group col-sm-6 col-sm-offset-3">
+          <button id="submit" type="submit" class="btn btn-warning" {{bind-attr disabled="controller.isInvalid"}}>Valider</button>
+          {{#link-to 'account' class="btn btn-info" }}Annuler{{/link-to}}
         </div>
-    </h1>
-
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">Nouvelle adresse e-mail</label>
-
-            <div class="col-sm-5">
-                <input type="email" id="email" class="form-control" placeholder="Email"/>
-            </div>
-            <div class="col-sm-4">
-                <ul class="text-primary error-list">
-                    <li>
-                        <p>
-                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                            Erreur : adresse email incorrecte
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="emailConfirmation" class="col-sm-3 control-label">Confirmation</label>
-
-            <div class="col-sm-5">
-                <input type="email" id="emailConfirmation" class="form-control" placeholder="Confirmation"/>
-            </div>
-            <div class="col-sm-4">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="actual-password" class="col-sm-3 control-label">Mot de passe</label>
-
-            <div class="col-sm-5">
-                <div class="input-group">
-                    <input type="password" id="delete-password" class="form-control"
-                           placeholder="Mot de passe"/>
-
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default">Valider</button>
-                      {{#link-to 'account' class="btn btn-primary"}}Annuler{{/link-to}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+      </div>
+    </div>
+  </form>
 </div>
