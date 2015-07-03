@@ -4,6 +4,6 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function () {
     // second arg is ignored : see adapters/profile
-    return this.get('store').find('profile', -1);
+    return this.get('store').find('user', -1);
   }
 });
