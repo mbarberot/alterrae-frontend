@@ -10,6 +10,13 @@
   </h1>
 
   <form class="form-horizontal" {{action 'update' on='submit' }}>
+    {{#if controller.errorMessage}}
+      <div class="alert alert-danger">
+        <p>
+          {{controller.errorMessage}}
+        </p>
+      </div>
+    {{/if}}
     {{#auto-validated-input label="Nouvelle adresse e-mail" errors=controller.errors.email}}
       {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=controller.email}}
     {{/auto-validated-input}}
