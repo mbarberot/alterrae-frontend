@@ -1,39 +1,39 @@
 <div class="row">
 
-    <h1 class="page-header">
-        Supprimer le compte
-        <div class="pull-right">
-          {{#link-to 'account.index' class="btn btn-default"}}
-              <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-              Retour
-          {{/link-to}}
-        </div>
-    </h1>
-
-    <p class="text-danger">
-        <b>
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            Attention : cette action est irréversible.
-        </b>
-    </p>
-
-    <div id="account-delete-start">
-        <button class="btn btn-danger"
-                onclick="$('#account-delete-start').toggleClass('hidden');$('#delete-validation').toggleClass('hidden');">
-            Supprimer le compte
-        </button>
+  <h1 class="page-header">
+    Supprimer le compte
+    <div class="pull-right">
+      {{#link-to 'account.index' class="btn btn-default" }}
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        Retour
+      {{/link-to}}
     </div>
-    <form class="form-inline">
-        <div id="delete-validation" class="hidden">
-            <div class="input-group">
-                <input type="password" id="delete-password" class="form-control"
-                       placeholder="Mot de passe"/>
+  </h1>
 
-                <div class="input-group-btn">
-                    <button type="submit" class="btn btn-danger">Valider</button>
-                  {{#link-to 'account' class="btn btn-primary"}}Annuler{{/link-to}}
-                </div>
-            </div>
-        </div>
-    </form>
+
+
+  <form class="form-horizontal" {{action 'delete' on='submit'}}>
+    <div class="col-sm-5 col-sm-offset-3">
+      <p class="text-danger">
+        <b>
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              Attention : cette action est irréversible.
+          </b>
+      </p>
+    </div>
+
+    <div class="col-sm-12">
+      {{#auto-validated-input label="Mot de passe actuel" errors=controller.errors.password}}
+        {{input type='password' classNames='form-control' id='actual-password' placeholder='mot de passe actuel' value=controller.password}}
+      {{/auto-validated-input}}
+    </div>
+
+    <div class="col-sm-5 col-sm-offset-3">
+      <div class="btn-group col-sm-6 col-sm-offset-3">
+        <button id="submit" type="submit" class="btn btn-danger" {{bind-attr disabled="controller.isInvalid"}}>Valider</button>
+        {{#link-to 'account' class="btn btn-info" }}Annuler{{/link-to}}
+      </div>
+    </div>
+
+  </form>
 </div>

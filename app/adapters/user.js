@@ -1,8 +1,7 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 
 export
-  default DS.RESTAdapter.extend({
+default DS.RESTAdapter.extend({
   host: 'https://api.sistearth.com',
   namespace: 'api',
 
@@ -12,18 +11,30 @@ export
 
   urlForFind: function(id) {
     var url;
-    if(id === '-1') {
+    if (id === '-1') {
       url = this.profileUrl();
-      console.log('urlForFind -1 called', url);
     } else {
       url = this._super(...arguments);
-      console.log('urlForFind called =>', url);
     }
     return url;
   },
 
   urlForUpdateRecord: function() {
-    console.log('urlForFindRecord called');
     return this.profileUrl();
-  }
+  },
+
+  urlForDeleteRecord: function() {
+    return this.profileUrl();
+  },
+
+  deleteRecord: function(store, type, snapshot) {
+    var id = snapshot.id;
+    var data = {};
+    var serializer = store.serializerFor(type.modelName);
+    serializer.serializeIntoHash(data, type, snapshot);
+
+    return this.ajax(this.buildURL(type.modelName, id, snapshot, 'deleteRecord'), "DELETE", {
+      data: data
+    });
+  },
 });
