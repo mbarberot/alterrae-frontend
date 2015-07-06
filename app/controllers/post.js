@@ -1,27 +1,16 @@
 import Ember from "ember";
 
 export
-  default Ember.Controller.extend({
-  accordionHref: function (key, value) {
-    var model = this.get('model');
+default Ember.Controller.extend({
+    accordionHref: Ember.computed('model.id', function() {
+        return "#post-" + this.get('model.id');
+    }),
 
-    if (value === undefined) {
-      return "#post-" + model.get('id');
-    }
-  }.property('model.id'),
+    accordionId: Ember.computed('model.id', function() {
+        return "post-" + this.get('model.id');
+    }),
 
-  accordionId: function (key, value) {
-    var model = this.get('model');
-
-    if (value === undefined) {
-      return "post-" + model.get('id');
-    }
-  }.property('model.id'),
-
-  formattedDate: function (key, value) {
-    var model = this.get('model');
-    if (value === undefined) {
-      return moment(model.get('created_at')).format('LL');
-    }
-  }.property('model.created_at')
+    formattedDate: Ember.computed('model.created_at', function() {
+        return moment(this.get('model.created_at')).format('LL');
+    })
 });
