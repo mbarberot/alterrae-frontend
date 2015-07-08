@@ -65,11 +65,7 @@ module.exports = function (environment) {
   ENV['simple-auth-token'] = {
     serverTokenEndpoint: 'https://api.sistearth.com/api/login',
     identificationField: 'username',
-    passwordField: 'password',
-    tokenPropertyName: 'token',
-    authorizationPrefix: 'Bearer ',
-    authorizationHeaderName: 'Authorization',
-    headers: {}
+    passwordField: 'password'
   };
 
   return ENV;
