@@ -27,19 +27,24 @@ export
 
   actions: {
     update: function () {
-      var _this = this;
+      this.set('successMessage', '');
+      this.set('errorMessage', '');
+      var controller = this;
       var user = this.get('model');
       user.set('password', this.password);
       user.set('actualPassword', this.actualPassword);
       console.log(user);
       user.save().then(
         function () {
-          console.log('ok');
+          controller.set('successMessage', "Mot de passe changé");
         },
         function (error) {
-          console.log(error);
-          var message = JSON.parse(error.responseText)['message'];
-          _this.set('errorMessage', message);
+          if(error.status == 500) {
+              controller.set('errorMessage', "Une erreur inattendue s'est produite, contactez un administrateur.");
+          } else if(error.status == 400) {
+              controller.set('errorMessage', "Mauvais mot de passe actuel");
+          }
+
         });
     }
   }

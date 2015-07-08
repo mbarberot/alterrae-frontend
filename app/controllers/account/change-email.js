@@ -2,7 +2,7 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-  default Ember.Controller.extend(EmberValidations.Mixin, {
+default Ember.Controller.extend(EmberValidations.Mixin, {
   validations: {
     email: {
       presence: {
@@ -19,21 +19,31 @@ export
     }
   },
 
+  setErrorMessage: function(field) {
+    var message;
+    switch (field) {
+      case 'email':
+        message = "E-mail déjà utilisé";
+        break;
+      default:
+        message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+    }
+    this.set('errorMessage', message);
+  },
+
   actions: {
-    update: function () {
-      var _this = this;
+    update: function() {
+      var controller = this;
       var user = this.get('model');
       user.set('actualPassword', this.password);
       user.set('email', this.email);
       console.log(user);
       user.save().then(
-        function () {
-          console.log('ok');
+        function() {
+          controller.set('successMessage', "Adresse e-mail changée");
         },
-        function (error) {
-          console.log(error);
-          var message = JSON.parse(error.responseText)['message'];
-          _this.set('errorMessage', message);
+        function(error) {
+          controller.setErrorMessage(JSON.parse(error.responseText)['field']);
         });
     }
   }

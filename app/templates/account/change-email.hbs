@@ -17,6 +17,13 @@
         </p>
       </div>
     {{/if}}
+    {{#if controller.successMessage}}
+      <div class="alert alert-success">
+        <p>
+          {{controller.successMessage}}
+        </p>
+      </div>
+    {{/if}}
     {{#auto-validated-input label="Nouvelle adresse e-mail" errors=controller.errors.email}}
       {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=controller.email}}
     {{/auto-validated-input}}
