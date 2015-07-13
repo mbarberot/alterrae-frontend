@@ -38,7 +38,7 @@ default Ember.Controller.extend(EmberValidations.Mixin, {
     switch (field) {
       case 'username': message = "Identifiant déjà utilisé"; break;
       case 'email' : message = "E-mail déjà utilisé"; break;
-      default: message = "Une erreur inattendue s'est produite, contactez un administrateur."
+      default: message = "Une erreur inattendue s'est produite, contactez un administrateur.";
     }
     this.set('errorMessage', message);
   },
