@@ -1,6 +1,6 @@
 import Ember from "ember";
 import {
-    test, moduleFor
+    test
 }
 from 'ember-qunit';
 import startApp from '../helpers/start-app';

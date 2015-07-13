@@ -1,12 +1,11 @@
 import Ember from "ember";
 import {
-    test, moduleFor
+    test
 }
 from 'ember-qunit';
 import startApp from '../helpers/start-app';
 import makeUser from '../helpers/make-user';
 import registerUser from '../helpers/register-user';
-import loginUser from '../helpers/login-user';
 
 var App;
 module('Register', {
@@ -33,4 +32,3 @@ test('Should be able to register', function() {
         });
     });
 });
-

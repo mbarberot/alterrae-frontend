@@ -39,9 +39,9 @@ export
           controller.set('successMessage', "Mot de passe changé");
         },
         function (error) {
-          if(error.status == 500) {
+          if(error.status === 500) {
               controller.set('errorMessage', "Une erreur inattendue s'est produite, contactez un administrateur.");
-          } else if(error.status == 400) {
+          } else if(error.status === 400) {
               controller.set('errorMessage', "Mauvais mot de passe actuel");
           }
 
