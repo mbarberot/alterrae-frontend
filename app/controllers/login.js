@@ -6,10 +6,9 @@ export
   authenticator: 'simple-auth-authenticator:token',
   actions: {
     authenticate: function () {
-      var _this = this;
+      var controller = this;
       this._super().then(null, function (error) {
-        var message = JSON.parse(error);
-        _this.set('errorMessage', message);
+        controller.set('errorMessage', true);
       });
     }
   }

@@ -2,7 +2,7 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-default Ember.Controller.extend(EmberValidations.Mixin, {
+default Ember.ObjectController.extend(EmberValidations, {
   validations: {
     email: {
       presence: {
@@ -12,7 +12,7 @@ default Ember.Controller.extend(EmberValidations.Mixin, {
         message: "Les adresses e-mails ne correspondent pas"
       }
     },
-    password: {
+    actualPassword: {
       presence: {
         message: "Entrer votre mot de passe pour valider la modification"
       }
@@ -31,21 +31,27 @@ default Ember.Controller.extend(EmberValidations.Mixin, {
     this.set('errorMessage', message);
   },
 
+  resetFields: function() {
+    this.set('successMessage', '');
+    this.set('errorMessage', '');
+    this.set('email', '');
+    this.set('emailConfirmation', '');
+    this.set('actualPassword', '');
+  },
+
   actions: {
     update: function() {
-      this.set('successMessage', '');
-      this.set('errorMessage', '');
       var controller = this;
       var user = this.get('model');
-      user.set('actualPassword', this.password);
-      user.set('email', this.email);
       console.log(user);
       user.save().then(
         function() {
           controller.set('successMessage', "Adresse e-mail changée");
+          controller.set('actualPassword', '');
         },
         function(error) {
-          controller.setErrorMessage(JSON.parse(error.responseText)['field']);
+          controller.resetFields();
+          controller.setErrorMessage('foo');
         });
     }
   }

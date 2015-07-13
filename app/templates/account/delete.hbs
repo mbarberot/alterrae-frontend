@@ -10,8 +10,6 @@
     </div>
   </h1>
 
-
-
   <form class="form-horizontal" {{action 'delete' on='submit'}}>
     <div class="col-sm-5 col-sm-offset-3">
       <p class="text-danger">
@@ -23,17 +21,16 @@
     </div>
 
     <div class="col-sm-12">
-      {{#auto-validated-input label="Mot de passe actuel" errors=controller.errors.password}}
-        {{input type='password' classNames='form-control' id='actual-password' placeholder='mot de passe actuel' value=controller.password}}
+      {{#auto-validated-input label="Mot de passe actuel" errors=errors.actualPassword}}
+        {{input type='password' classNames='form-control' id='actual-password' placeholder='mot de passe actuel' value=actualPassword}}
       {{/auto-validated-input}}
     </div>
 
     <div class="col-sm-5 col-sm-offset-3">
       <div class="btn-group col-sm-6 col-sm-offset-3">
-        <button id="submit" type="submit" class="btn btn-danger" {{bind-attr disabled="controller.isInvalid"}}>Valider</button>
+        <button id="submit" type="submit" class="btn btn-danger" disabled= {{isInvalid}}>Valider</button>
         {{#link-to 'account' class="btn btn-info" }}Annuler{{/link-to}}
       </div>
     </div>
-
   </form>
 </div>

@@ -2,9 +2,9 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-  default Ember.Controller.extend(EmberValidations.Mixin, {
+  default Ember.ObjectController.extend(EmberValidations, {
   validations: {
-    password: {
+    actualPassword: {
       presence: {
         message: "Entrer votre mot de passe pour valider la modification"
       }
@@ -13,18 +13,17 @@ export
 
   actions: {
     delete: function () {
-      var _this = this;
+      var controller = this;
       var user = this.get('model');
-      user.set('actualPassword', this.password);
       user.deleteRecord();
       user.save().then(
         function () {
           console.log('ok');
+          controller.set('actualPassword', '');
         },
         function (error) {
-          console.log(error);
-          var message = JSON.parse(error.responseText)['message'];
-          _this.set('errorMessage', message);
+          controller.set('errorMessage', "Une erreur inattendue s'est produite, contactez un administrateur.");
+          controller.set('actualPassword', '');
         });
     }
   }
