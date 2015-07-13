@@ -33,6 +33,8 @@ default Ember.Controller.extend(EmberValidations.Mixin, {
 
   actions: {
     update: function() {
+      this.set('successMessage', '');
+      this.set('errorMessage', '');
       var controller = this;
       var user = this.get('model');
       user.set('actualPassword', this.password);
