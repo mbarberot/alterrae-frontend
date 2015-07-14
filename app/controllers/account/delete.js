@@ -11,6 +11,18 @@ export
     }
   },
 
+  setErrorMessages: function(status) {
+    var message;
+    switch(status) {
+        case '400' :
+          message = "Mot de passe erroné.";
+          break;
+        default:
+          message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+    }
+    this.set('errorMessages', [message]);
+  },
+
   actions: {
     delete: function () {
       var controller = this;
@@ -20,9 +32,10 @@ export
         function () {
           console.log('ok');
           controller.set('actualPassword', '');
+          controller.set('successMessage', "Compte supprimé");
         },
-        function (error) {
-          controller.set('errorMessage', "Une erreur inattendue s'est produite, contactez un administrateur.");
+        function () {
+          controller.setErrorMessages('400');
           controller.set('actualPassword', '');
         });
     }

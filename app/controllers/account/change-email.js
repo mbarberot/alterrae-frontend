@@ -19,21 +19,25 @@ default Ember.ObjectController.extend(EmberValidations, {
     }
   },
 
-  setErrorMessage: function(field) {
-    var message;
-    switch (field) {
-      case 'email':
-        message = "E-mail déjà utilisé";
-        break;
-      default:
-        message = "Une erreur inattendue s'est produite, contactez un administrateur.";
-    }
-    this.set('errorMessage', message);
+  setErrorMessages: function(errors) {
+    var messages = [];
+    errors.forEach(function(error) {
+      var message;
+      switch (error.title) {
+        case 'email':
+          message = "E-mail déjà utilisé";
+          break;
+        default:
+          message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+      }
+      messages.push(message);
+    });
+    this.set('errorMessages', messages);
   },
 
   resetFields: function() {
     this.set('successMessage', '');
-    this.set('errorMessage', '');
+    this.set('errorMessages', []);
     this.set('email', '');
     this.set('emailConfirmation', '');
     this.set('actualPassword', '');
@@ -43,7 +47,6 @@ default Ember.ObjectController.extend(EmberValidations, {
     update: function() {
       var controller = this;
       var user = this.get('model');
-      console.log(user);
       user.save().then(
         function() {
           controller.set('successMessage', "Adresse e-mail changée");
@@ -51,7 +54,7 @@ default Ember.ObjectController.extend(EmberValidations, {
         },
         function(error) {
           controller.resetFields();
-          controller.setErrorMessage('foo');
+          controller.setErrorMessages(error.errors);
         });
     }
   }

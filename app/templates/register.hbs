@@ -2,10 +2,17 @@
   <h1 class="page-header">Inscription</h1>
 
   <form role="form" class="form-horizontal col-md-12" {{action 'register' on='submit' }}>
-    {{#if errorMessage}}
+    {{#each errorMessages as |message|}}
       <div class="alert alert-danger">
         <p>
-          {{errorMessage}}
+          {{message}}
+        </p>
+      </div>
+    {{/each}}
+    {{#if successMessage}}
+      <div class="alert alert-success">
+        <p>
+          {{successMessage}}
         </p>
       </div>
     {{/if}}

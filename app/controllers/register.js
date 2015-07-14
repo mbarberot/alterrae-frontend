@@ -33,20 +33,23 @@ default Ember.ObjectController.extend(EmberValidations, {
     }
   },
 
-  setErrorMessage: function(field) {
-    var message;
-    switch (field) {
-      case 'username':
-        message = "Identifiant déjà utilisé";
-        break;
-      case 'email':
-        message = "E-mail déjà utilisé";
-        break;
-      default:
-        message = "Une erreur inattendue s'est produite, contactez un administrateur.";
-    }
-    this.set('errorMessage', message);
-    console.log(message);
+  setErrorMessages: function(errors) {
+    var messages = [];
+    errors.forEach(function(error) {
+      var message;
+      switch (error.title) {
+        case 'username':
+          message = "Identifiant déjà utilisé";
+          break;
+        case 'email':
+          message = "E-mail déjà utilisé";
+          break;
+        default:
+          message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+      }
+      messages.push(message);
+    });
+    this.set('errorMessages', messages);
   },
 
   resetFields: function() {
@@ -55,14 +58,12 @@ default Ember.ObjectController.extend(EmberValidations, {
     this.set('model.password', '');
     this.set('emailConfirmation', '');
     this.set('passwordConfirmation', '');
+    this.set('errorMessages', []);
   },
 
   actions: {
     register: function() {
       var controller = this;
-
-      this.set('errorMessage', '');
-
       var user = this.get('model');
       user.save().then(
         function() {
@@ -70,8 +71,7 @@ default Ember.ObjectController.extend(EmberValidations, {
         },
         function(error) {
           controller.resetFields();
-          controller.setErrorMessage('foo'); // TODO retour serveur JSON API
-          console.log("register > ", error);
+          controller.setErrorMessages(error.errors);
         }
       );
     }

@@ -25,9 +25,21 @@ export
     }
   },
 
+  setErrorMessages: function(status) {
+    var message;
+    switch(status) {
+        case '400' :
+          message = "Mot de passe erroné.";
+          break;
+        default:
+          message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+    }
+    this.set('errorMessages', [message]);
+  },
+
   resetFields: function() {
     this.set('successMessage', '');
-    this.set('errorMessage', '');
+    this.set('errorMessages', []);
     this.set('password', '');
     this.set('passwordConfirmation', '');
     this.set('actualPassword', '');
@@ -44,7 +56,7 @@ export
         },
         function (error) {
           controller.resetFields();
-          controller.set('errorMessage', "Une erreur inattendue s'est produite, contactez un administrateur.");
+          controller.setErrorMessages('400');
         });
     }
   }

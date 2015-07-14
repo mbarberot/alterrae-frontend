@@ -11,6 +11,21 @@
   </h1>
 
   <form class="form-horizontal" {{action 'delete' on='submit'}}>
+    {{#each errorMessages as |message|}}
+      <div class="alert alert-danger">
+        <p>
+          {{message}}
+        </p>
+      </div>
+    {{/each}}
+    {{#if successMessage}}
+      <div class="alert alert-success">
+        <p>
+          {{successMessage}}
+        </p>
+      </div>
+    {{/if}}
+
     <div class="col-sm-5 col-sm-offset-3">
       <p class="text-danger">
         <b>
