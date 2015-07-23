@@ -7,7 +7,7 @@ export
   actions: {
     authenticate: function () {
       var controller = this;
-      this._super().then(null, function (error) {
+      this._super().then(null, function () {
         controller.set('errorMessage', true);
       });
     }

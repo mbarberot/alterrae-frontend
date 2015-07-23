@@ -54,7 +54,7 @@ export
           controller.set('successMessage', "Mot de passe changé");
           controller.set('actualPassword', '');
         },
-        function (error) {
+        function () {
           controller.resetFields();
           controller.setErrorMessages('400');
         });
