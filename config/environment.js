@@ -34,6 +34,17 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['simple-auth'] = {
+      authorizer: 'simple-auth-authorizer:token',
+      crossOriginWhitelist: ['https://api.sistearth.com'],
+      routeAfterAuthentication: 'game'
+    };
+
+    ENV['simple-auth-token'] = {
+      serverTokenEndpoint: 'https://api.sistearth.com/api/login',
+      identificationField: 'username',
+      passwordField: 'password'
+    };
   }
 
   if (environment === 'test') {
@@ -53,20 +64,18 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+    ENV['simple-auth'] = {
+      authorizer: 'simple-auth-authorizer:token',
+      crossOriginWhitelist: ['https://api.sistearth.com'],
+      routeAfterAuthentication: 'game'
+    };
 
+    ENV['simple-auth-token'] = {
+      serverTokenEndpoint: 'https://api.sistearth.com/api/login',
+      identificationField: 'username',
+      passwordField: 'password'
+    };
   }
-
-  ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:token',
-    crossOriginWhitelist: ['https://api.sistearth.com'],
-    routeAfterAuthentication: 'game'
-  };
-
-  ENV['simple-auth-token'] = {
-    serverTokenEndpoint: 'https://api.sistearth.com/api/login',
-    identificationField: 'username',
-    passwordField: 'password'
-  };
 
   return ENV;
 };
