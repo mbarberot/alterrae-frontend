@@ -2,29 +2,41 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-  default Ember.Controller.extend(EmberValidations.Mixin, {
+  default Ember.ObjectController.extend(EmberValidations, {
   validations: {
-    password: {
+    actualPassword: {
       presence: {
         message: "Entrer votre mot de passe pour valider la modification"
       }
     }
   },
 
+  setErrorMessages: function(status) {
+    var message;
+    switch(status) {
+        case '400' :
+          message = "Mot de passe erroné.";
+          break;
+        default:
+          message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+    }
+    this.set('errorMessages', [message]);
+  },
+
   actions: {
     delete: function () {
-      var _this = this;
+      var controller = this;
       var user = this.get('model');
-      user.set('actualPassword', this.password);
       user.deleteRecord();
       user.save().then(
         function () {
           console.log('ok');
+          controller.set('actualPassword', '');
+          controller.set('successMessage', "Compte supprimé");
         },
-        function (error) {
-          console.log(error);
-          var message = JSON.parse(error.responseText)['message'];
-          _this.set('errorMessage', message);
+        function () {
+          controller.setErrorMessages('400');
+          controller.set('actualPassword', '');
         });
     }
   }

@@ -2,7 +2,7 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-  default Ember.Controller.extend(EmberValidations.Mixin, {
+  default Ember.ObjectController.extend(EmberValidations, {
   validations: {
     password: {
       presence: {
@@ -25,26 +25,38 @@ export
     }
   },
 
+  setErrorMessages: function(status) {
+    var message;
+    switch(status) {
+        case '400' :
+          message = "Mot de passe erroné.";
+          break;
+        default:
+          message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+    }
+    this.set('errorMessages', [message]);
+  },
+
+  resetFields: function() {
+    this.set('successMessage', '');
+    this.set('errorMessages', []);
+    this.set('password', '');
+    this.set('passwordConfirmation', '');
+    this.set('actualPassword', '');
+  },
+
   actions: {
     update: function () {
-      this.set('successMessage', '');
-      this.set('errorMessage', '');
       var controller = this;
       var user = this.get('model');
-      user.set('password', this.password);
-      user.set('actualPassword', this.actualPassword);
-      console.log(user);
       user.save().then(
         function () {
           controller.set('successMessage', "Mot de passe changé");
+          controller.set('actualPassword', '');
         },
-        function (error) {
-          if(error.status == 500) {
-              controller.set('errorMessage', "Une erreur inattendue s'est produite, contactez un administrateur.");
-          } else if(error.status == 400) {
-              controller.set('errorMessage', "Mauvais mot de passe actuel");
-          }
-
+        function () {
+          controller.resetFields();
+          controller.setErrorMessages('400');
         });
     }
   }

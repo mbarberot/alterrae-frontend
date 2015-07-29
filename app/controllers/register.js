@@ -2,7 +2,7 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-default Ember.Controller.extend(EmberValidations.Mixin, {
+default Ember.ObjectController.extend(EmberValidations, {
   validations: {
     username: {
       presence: {
@@ -33,32 +33,47 @@ default Ember.Controller.extend(EmberValidations.Mixin, {
     }
   },
 
-  setErrorMessage: function(field) {
-    var message;
-    switch (field) {
-      case 'username': message = "Identifiant déjà utilisé"; break;
-      case 'email' : message = "E-mail déjà utilisé"; break;
-      default: message = "Une erreur inattendue s'est produite, contactez un administrateur.";
-    }
-    this.set('errorMessage', message);
+  setErrorMessages: function(errors) {
+    var messages = [];
+    errors.forEach(function(error) {
+      var message;
+      switch (error.title) {
+        case 'username':
+          message = "Identifiant déjà utilisé";
+          break;
+        case 'email':
+          message = "E-mail déjà utilisé";
+          break;
+        default:
+          message = "Une erreur inattendue s'est produite, contactez un administrateur.";
+      }
+      messages.push(message);
+    });
+    this.set('errorMessages', messages);
+  },
+
+  resetFields: function() {
+    this.set('model.username', '');
+    this.set('model.email', '');
+    this.set('model.password', '');
+    this.set('emailConfirmation', '');
+    this.set('passwordConfirmation', '');
+    this.set('errorMessages', []);
   },
 
   actions: {
     register: function() {
-      this.set('errorMessage', '');
       var controller = this;
       var user = this.get('model');
-      user.set('username', this.username);
-      user.set('password', this.password);
-      user.set('email', this.email);
       user.save().then(
         function() {
-          Ember.$('#successModal')
-            .modal('show');
+          Ember.$('#successModal').modal('show');
         },
         function(error) {
-          controller.setErrorMessage(JSON.parse(error.responseText)['field']);
-        });
+          controller.resetFields();
+          controller.setErrorMessages(error.errors);
+        }
+      );
     }
   }
 });

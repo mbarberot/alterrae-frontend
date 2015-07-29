@@ -7,7 +7,7 @@
   <div class="col-sm-4">
     {{#if errors}}
       <ul class="text-primary error-list">
-        {{#each error in errors}}
+        {{#each errors as |error|}}
           <li>
             <p>
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
