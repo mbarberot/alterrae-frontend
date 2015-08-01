@@ -1,7 +1,7 @@
 import Ember from "ember";
-import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import PlayerRouteMixin from '../mixins/player-route-mixin';
 
-var GameRoute = Ember.Route.extend(AuthenticatedRouteMixin, {
+var GameRoute = Ember.Route.extend(PlayerRouteMixin, {
 //    model: function () {
 //        var store = this.get('store');
 //        var user = store.find('user');
