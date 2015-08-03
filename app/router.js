@@ -16,9 +16,8 @@ Router.map(function() {
     this.route('change-password');
     this.route('delete');
   });
-  this.resource('player', function(){
-    this.route('create');
-  });
+  this.resource('create-player');
+  this.resource('player');
 });
 
 export default Router;

@@ -9,7 +9,7 @@ export default Ember.Mixin.create(AuthenticatedRouteMixin, {
     var roles = this.get(Configuration.sessionPropertyName).get('content').secure.profile.roles;
     if (!roles.contains("ROLE_PLAYER")) {
       transition.abort();
-      this.transitionTo('/player/create');
+      this.transitionTo('/create-player');
     }
 
     return superResult;
