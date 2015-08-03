@@ -1,0 +1,45 @@
+<div class="row">
+  <h1 class="page-header">Créer votre personnage</h1>
+
+  <form role="form" class="form-horizontal col-md-12" {{action 'create-player' on='submit' }}>
+    {{#each errorMessages as |message|}}
+      <div class="alert alert-danger">
+        <p>
+          {{message}}
+        </p>
+      </div>
+    {{/each}}
+    {{#if successMessage}}
+      <div class="alert alert-success">
+        <p>
+          {{successMessage}}
+        </p>
+      </div>
+    {{/if}}
+
+    {{#auto-validated-input label="Nom" errors=errors.name}}
+      {{input type='text' classNames='form-control' id='username' placeholder='Nom' value=name}}
+    {{/auto-validated-input}}
+
+    {{#auto-validated-input label="Sexe" errors=errors.sex}}
+      {{view "select" content=sexValues optionValuePath="content.id" optionLabelPath="content.label" prompt="Choisissez le sexe de votre personnage" value=sex classNames="form-control"}}
+    {{/auto-validated-input}}
+
+    {{#auto-validated-input label="Classe" errors=errors.class}}
+      {{view "select" content=classValues optionValuePath="content.id" optionLabelPath="content.label" prompt="Choisissez la classe de votre personnage" value=class classNames="form-control"}}
+    {{/auto-validated-input}}
+
+    {{#auto-validated-input label="Royaume" errors=errors.kingdom}}
+      {{view "select" content=kingdomValues optionValuePath="content.id" optionLabelPath="content.label" prompt="Choisissez le royaume de votre personnage" value=kingdom classNames="form-control"}}
+    {{/auto-validated-input}}
+
+    <hr/>
+
+    <div class="form-group">
+      <div class="col-sm-8 col-sm-offset-4">
+        <button id="submit" type="submit" class="btn btn-primary col-sm-4" disabled= {{isInvalid}}>Valider
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
