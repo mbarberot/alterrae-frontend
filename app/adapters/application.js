@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export
-default DS.RESTAdapter.extend({
+default DS.JSONAPIAdapter.extend({
     host: 'https://api.sistearth.com',
     namespace: 'api'
 });
