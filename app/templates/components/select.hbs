@@ -1,0 +1,7 @@
+<select {{action 'change' on='change'}}>
+  {{#each content key="@index" as |item|}}
+    <option value="{{item.id}}" selected={{is-equal item selectedValue}}>
+      {{item.label}}
+    </option>
+  {{/each}}
+</select>
