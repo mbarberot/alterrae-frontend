@@ -2,7 +2,7 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-default Ember.ObjectController.extend(EmberValidations, {
+default Ember.Controller.extend(EmberValidations, {
   validations: {
     email: {
       presence: {
