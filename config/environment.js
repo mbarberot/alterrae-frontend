@@ -15,6 +15,9 @@ module.exports = function (environment) {
       'style-src': "'self' 'unsafe-inline'",
       'report-uri': "http://localhost:4200"
     },
+    moment: {
+      outputFormat: 'LL'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
