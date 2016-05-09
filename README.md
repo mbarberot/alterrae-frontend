@@ -1,5 +1,7 @@
 # Sistearth-frontend
 
+[![Build Status](https://travis-ci.org/mbarberot/sistearth-frontend.svg?branch=master)](https://travis-ci.org/mbarberot/sistearth-frontend)
+
 Frontend with Ember for Sistearth v4
 
 ## Tools 
