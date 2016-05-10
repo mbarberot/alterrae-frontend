@@ -24,7 +24,7 @@ before_install:
   - npm config set spin false
   - npm install -g npm@^2
   - wget https://github.com/mbarberot/sistearth-backend/archive/master.zip
-  - unzip master.zip
+  - unzip master.zip && mv sistearth-backend-master sistearth-backend
   - bash prepare-test.sh
 
 
