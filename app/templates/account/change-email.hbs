@@ -10,14 +10,14 @@
   </h1>
 
   <form class="form-horizontal" {{action 'update' on='submit' }}>
-    {{#each errorMessages as |message|}}
+    {{#each model.errorMessages as |message|}}
       <div class="alert alert-danger">
         <p>
           {{message}}
         </p>
       </div>
     {{/each}}
-    {{#if successMessage}}
+    {{#if model.successMessage}}
       <div class="alert alert-success">
         <p>
           {{successMessage}}
@@ -25,13 +25,13 @@
       </div>
     {{/if}}
     {{#auto-validated-input label="Nouvelle adresse e-mail" errors=errors.email}}
-      {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=email}}
+      {{input type='email' classNames='form-control' id='email' placeholder='email@example.com' value=model.email}}
     {{/auto-validated-input}}
     {{#auto-validated-input label="Confirmation" errors=errors.emailConfirmation}}
-      {{input type='email' classNames='form-control' id='email-confirmation' placeholder='email@example.com' value=emailConfirmation}}
+      {{input type='email' classNames='form-control' id='email-confirmation' placeholder='email@example.com' value=model.emailConfirmation}}
     {{/auto-validated-input}}
     {{#auto-validated-input label="Mot de passe" errors=errors.actualPassword}}
-      {{input type='password' classNames='form-control' id='password' placeholder='mot de passe' value=actualPassword}}
+      {{input type='password' classNames='form-control' id='password' placeholder='mot de passe' value=model.actualPassword}}
     {{/auto-validated-input}}
 
     <div class="form-group">

@@ -1,22 +1,16 @@
 import DS from 'ember-data';
 
 export
-default DS.RESTAdapter.extend({
+default DS.JSONAPIAdapter.extend({
   host: 'https://api.sistearth.com',
   namespace: 'api',
 
-  profileUrl: function() {
-    return this.buildURL('user', null, null, 'findAll') + '/profile';
+  queryRecord: function(store, type, query) {
+    return this.ajax(this.profileUrl(), 'GET');
   },
 
-  urlForFind: function(id) {
-    var url;
-    if (id === '-1') {
-      url = this.profileUrl();
-    } else {
-      url = this._super(...arguments);
-    }
-    return url;
+  profileUrl: function() {
+    return this.buildURL('user', null, null, 'findAll') + '/profile';
   },
 
   urlForUpdateRecord: function() {
