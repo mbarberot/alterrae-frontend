@@ -2,14 +2,14 @@ import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
 export
-default Ember.ObjectController.extend(EmberValidations, {
+default Ember.Controller.extend(EmberValidations, {
   validations: {
-    username: {
+    'model.username': {
       presence: {
         message: "Champ obligatoire"
       }
     },
-    email: {
+    'model.email': {
       presence: {
         message: "Champ obligatoire"
       },
@@ -17,7 +17,7 @@ default Ember.ObjectController.extend(EmberValidations, {
         message: "Les adresses e-mails ne correspondent pas"
       }
     },
-    password: {
+    'model.password': {
       presence: {
         message: "Champ obligatoire"
       },
