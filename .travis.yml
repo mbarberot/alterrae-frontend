@@ -20,7 +20,6 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - npm config set spin false
   - npm install -g npm@^2
   - wget https://github.com/mbarberot/sistearth-backend/archive/master.zip
@@ -30,6 +29,7 @@ before_install:
 
 install:
   - npm install -g bower
+  - npm install -g phantomjs
   - npm install
   - bower install
   - docker-compose up -d && sleep 20
