@@ -1,0 +1,15 @@
+backend:
+    image: sistearth/backend
+    ports:
+        - "443:8080"
+        - "8787:8787"
+    links:
+        - database:database
+
+database:
+    image: sistearth/mariadb
+    environment:
+        MYSQL_ROOT_PASSWORD: sistearth
+        MYSQL_USER: sistearth
+        MYSQL_PASSWORD: sistearth
+        MYSQL_DATABASE: sistearth
