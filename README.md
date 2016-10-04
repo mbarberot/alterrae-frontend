@@ -1,6 +1,6 @@
 # Sistearth-frontend
 
-[![Build Status](https://travis-ci.org/mbarberot/sistearth-frontend.svg?branch=master)](https://travis-ci.org/mbarberot/sistearth-frontend)
+[![Build Status](https://travis-ci.org/mbarberot/alterrae-frontend.svg?branch=master)](https://travis-ci.org/mbarberot/alterrae-frontend)
 
 Frontend with Ember for Sistearth v4
 
